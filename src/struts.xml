@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="userlogin" extends="struts-default">
+		<action name="login" class="UserAction" method="login">
+			<result name="success">/success.jsp</result>
+		</action>
+	</package>
+	<package name="utils" extends="json-default">
+		
+		<action name="listEntityTree" class="classMappingAction" method="listEntityTree">
+			<result  name="success" type="json">
+				<param name="root">tree</param>
+			</result>
+		</action>
+		<action name="listEntity" class="classMappingAction" method="listEntity">
+			<result  name="success" type="json">
+				<param name="root">entity</param>
+			</result>
+		</action>
+		<action name="createE" class="classMappingAction" method="createE">
+			<result  name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+	
+	</package>
+</struts>    
