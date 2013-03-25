@@ -10,6 +10,7 @@ public class BaseAction<T> extends ActionSupport{
 	protected PageRequest page;
 	protected Page<T> lists;
 	
+	
 	public static void main(String[] args) {
 		
 		 PageRequest page = new PageRequest(1, 20);
