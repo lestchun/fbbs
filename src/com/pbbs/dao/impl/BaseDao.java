@@ -1,5 +1,7 @@
 package com.pbbs.dao.impl;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -21,13 +23,13 @@ public class BaseDao<T> extends SimpleJpaRepository<T, Integer>{
 	protected  EntityManager em;
 	
 	public Page<T> findByHQL(String hql,Pageable page){
-		return findByHQL(hql,null,page);
+		return findByHQL(hql,new HashMap<String,Object>(),page);
 	}
 	
 	@SuppressWarnings("unchecked")
 	public Page<T> findByHQL(String hql,Map<String, Object> param , Pageable page){
 		Query query=em.createQuery(hql);
-		Query count=em.createQuery("select count(1) from ( "+hql+" )");
+		Query count=em.createQuery(hql.replaceFirst("^[^(]*(?=(from)|(FROM))", "select count(*) "));
 		
 		if(null!=param){
 			Set<String> keys= param.keySet();
@@ -41,6 +43,27 @@ public class BaseDao<T> extends SimpleJpaRepository<T, Integer>{
 				query.setFirstResult(page.getOffset()-page.getPageSize()).setMaxResults(page.getPageSize()).getResultList(),
 				(Integer)count.getSingleResult(),page.getPageNumber()
 		);
+		
+		return pa;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public Page<T> findByHQL(String hql,List<Object> param , Pageable page){
+		Query query=em.createQuery(hql);
+		
+		Query count=em.createQuery(hql.replaceFirst("^[^(]*(?=(from)|(FROM))", "select count(*) "));
+		
+		if(null!=param){
+			for(int i=0;i<param.size();i++){
+				query.setParameter(i+1, param.get(i));
+				count.setParameter(i+1, param.get(i));
+			}
+		}
+		
+		Page<T> pa= new PageModel<T>(
+				query.setFirstResult((page.getPageNumber()-1)*page.getPageSize()).setMaxResults(page.getPageSize()).getResultList(),
+				((Long)count.getSingleResult()).intValue(),page.getPageNumber()
+				);
 		
 		return pa;
 	}
