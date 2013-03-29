@@ -1,0 +1,35 @@
+package com.pbbs.service;
+
+import com.pbbs.model.Bbs;
+
+/**
+ * 用户业务接口
+ */
+public interface BbsService {
+    
+    /**
+     * 保存Bbs
+     * @param Bbs
+     */
+  public  void saveBbs(Bbs model);
+    
+    /**
+     * 根据id查找Bbs
+     * @param id
+     * @return
+     */
+   public Bbs findBbsById(Integer id);
+    
+    /**
+     * 更新Bbs
+     * @param Bbs
+     */
+  public  void updateBbs(Bbs model);
+    
+    /**
+     * 根据ID删除Bbs
+     * @param id
+     */
+  public  void deleteBbsById(Integer id);
+
+}

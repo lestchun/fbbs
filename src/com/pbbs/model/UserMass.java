@@ -12,6 +12,7 @@ import javax.persistence.Table;
 /**
  * UserMass entity. @author MyEclipse Persistence Tools
  */
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "usermass", catalog = "spring_data_jpa")
 public class UserMass implements java.io.Serializable {

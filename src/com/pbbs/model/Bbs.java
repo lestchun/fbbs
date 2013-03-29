@@ -12,6 +12,7 @@ import javax.persistence.Table;
 /**
  * Bbs entity. @author MyEclipse Persistence Tools
  */
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "bbs", catalog = "spring_data_jpa")
 public class Bbs implements java.io.Serializable {

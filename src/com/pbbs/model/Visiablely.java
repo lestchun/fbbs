@@ -13,6 +13,7 @@ import javax.persistence.Table;
 /**
  * Visiablely entity. @author MyEclipse Persistence Tools
  */
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "visiablely", catalog = "spring_data_jpa")
 public class Visiablely implements java.io.Serializable {

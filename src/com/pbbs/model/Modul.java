@@ -13,6 +13,7 @@ import javax.persistence.Table;
 /**
  * Modul entity. @author MyEclipse Persistence Tools
  */
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "modul", catalog = "spring_data_jpa")
 public class Modul implements java.io.Serializable {
