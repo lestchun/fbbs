@@ -41,15 +41,49 @@ public class BaseDao<T> extends SimpleJpaRepository<T, Integer>{
 		
 		Page<T> pa= new PageModel<T>(
 				query.setFirstResult(page.getOffset()-page.getPageSize()).setMaxResults(page.getPageSize()).getResultList(),
-				(Integer)count.getSingleResult(),page.getPageNumber()
+				(Integer)count.getSingleResult(),page.getPageNumber()+1
 		);
-		
 		return pa;
 	}
 	
 	@SuppressWarnings("unchecked")
+	public T findOne(String hql,List<Object> param){
+		Query query=em.createQuery(hql);
+		if(null!=param){
+			for(int i=0;i<param.size();i++){
+				query.setParameter(i+1, param.get(i));
+			}
+		}
+		return (T)query.getSingleResult();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public T findOne(String hql,Object [] param){
+		Query query=em.createQuery(hql);
+		if(null!=param){
+			for(int i=0;i<param.length;i++){
+				query.setParameter(i+1, param[i]);
+			}
+		}
+		return (T)query.getSingleResult();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<T> findList(String hql,Object [] param){
+		Query query=em.createQuery(hql);
+		if(null!=param){
+			for(int i=0;i<param.length;i++){
+				query.setParameter(i+1, param[i]);
+			}
+		}
+		return (List<T>) query.getResultList();
+	}
+			
+			
+	@SuppressWarnings("unchecked")
 	public Page<T> findByHQL(String hql,List<Object> param , Pageable page){
 		Query query=em.createQuery(hql);
+		
 		
 		Query count=em.createQuery(hql.replaceFirst("^[^(]*(?=(from)|(FROM))", "select count(*) "));
 		
@@ -67,6 +101,9 @@ public class BaseDao<T> extends SimpleJpaRepository<T, Integer>{
 		
 		return pa;
 	}
+	
+	
+	
  
 }
 

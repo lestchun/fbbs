@@ -2,8 +2,60 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<package name="comment" extends="struts-default">
+	
 		<action name="listShortMass" class="MassAction" method="listShortMass">
 			<result name="success">/WEB-INF/comment/massList.jsp</result>
 		</action>
+		
+		<action name="loadMass" class="MassAction" method="loadMass">
+			<result name="success">/WEB-INF/mass/mass.jsp</result>
+		</action>
+		
+		<action name="loadModul" class="ModulAction" method="loadModul">
+			<result name="success">/WEB-INF/mass/depart.jsp</result>
+		</action>
+		
+		<action name="listModulBbs" class="BbsAction" method="listModulBbs">
+			<result name="success">/WEB-INF/mass/departBbsList.jsp</result>
+		</action>
+		
+		<action name="getHotBbs" class="BbsAction" method="getHotBbs">
+			<result name="success">/WEB-INF/bbs/listSBBs.jsp</result>
+		</action>
+		
+		<action name="getLastUpdate" class="BbsAction" method="getLastUpdate">
+			<result name="success">/WEB-INF/bbs/listSBBs.jsp</result>
+		</action>
+		
+		<action name="userCenter" class="UserAction" method="userCenter">
+			<result name="success">/WEB-INF/persion/index.jsp</result>
+		</action>
+		
+		<action name="logout" class="UserAction" method="logout">
+			<result name="success">index.jsp</result>
+		</action>
+		
+	</package>
+	<package name="login" extends="json-default">
+	
+		<action name="login" class="UserAction" method="login">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="test_01" class="UserAction" method="test_01">
+		
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="test_02" class="BbsAction" method="test_01">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
 	</package>
 </struts>    

@@ -37,4 +37,7 @@ public interface UserService {
      */
   public  void deleteUserById(Integer id);
     
+  
+  public User findUserByUserNameAndUserName(User user);
+  
 }

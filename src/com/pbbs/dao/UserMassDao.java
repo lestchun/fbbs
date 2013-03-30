@@ -1,5 +1,7 @@
 package com.pbbs.dao;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
@@ -11,5 +13,7 @@ import com.pbbs.model.UserMass;
  */
  @NoRepositoryBean
 public interface UserMassDao extends JpaRepository<UserMass,Integer>{
+	 public List<UserMass> findByUserIdAndMassId(Integer userId,Integer massId);
+	 public List<UserMass> findByUserIdAndMasss(Integer userId,String moduls);
 /*${start}${content}${end}*/
 }

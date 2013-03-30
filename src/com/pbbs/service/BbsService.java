@@ -1,5 +1,8 @@
 package com.pbbs.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.pbbs.model.Bbs;
 
 /**
@@ -31,5 +34,16 @@ public interface BbsService {
      * @param id
      */
   public  void deleteBbsById(Integer id);
-
+  /**
+   * 找出指定模块下的帖子
+   * @param modulId
+   * @param veify
+   * @param page
+   * @return
+   */
+  public Page<Bbs> findBbsByModul(Integer modulId, Integer veify,Pageable page) ;
+  
+  public Page<Bbs> find(Pageable page);
+  
+  
 }

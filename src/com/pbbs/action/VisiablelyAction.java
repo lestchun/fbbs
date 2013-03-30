@@ -11,6 +11,9 @@ import com.pbbs.service.VisiablelyService;
 public class VisiablelyAction extends BaseAction<Visiablely> {
 	private static final long serialVersionUID = 3204261195403033209L;
 	@Autowired VisiablelyService service;
+	public VisiablelyAction() {
+		model=new Visiablely();
+	}
 	
 	
 	

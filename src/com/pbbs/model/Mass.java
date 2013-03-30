@@ -32,26 +32,27 @@ public class Mass implements java.io.Serializable {
 	private String desc;
 	private Integer num;
 	private Set<Modul> moduls = new HashSet<Modul>(0);
-	private Set<Bbs> bbses = new HashSet<Bbs>(0);
-	private Set<UserMass> userMasses = new HashSet<UserMass>(0);
+	
+
 
 	// Constructors
 
 	/** default constructor */
 	public Mass() {
 	}
+ 
 
-	/** full constructor */
-	public Mass(User user, String name, String desc, Integer num,
-			Set<Modul> moduls, Set<Bbs> bbses, Set<UserMass> userMasses) {
+	public Mass(Integer id, User user, String name, String desc, Integer num,
+			Set<Modul> moduls) {
+		super();
+		this.id = id;
 		this.user = user;
 		this.name = name;
 		this.desc = desc;
 		this.num = num;
 		this.moduls = moduls;
-		this.bbses = bbses;
-		this.userMasses = userMasses;
 	}
+
 
 	// Property accessors
 	@Id
@@ -109,24 +110,6 @@ public class Mass implements java.io.Serializable {
 
 	public void setModuls(Set<Modul> moduls) {
 		this.moduls = moduls;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "mass")
-	public Set<Bbs> getBbses() {
-		return this.bbses;
-	}
-
-	public void setBbses(Set<Bbs> bbses) {
-		this.bbses = bbses;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "mass")
-	public Set<UserMass> getUserMasses() {
-		return this.userMasses;
-	}
-
-	public void setUserMasses(Set<UserMass> userMasses) {
-		this.userMasses = userMasses;
 	}
 
 }
