@@ -12,4 +12,8 @@ public class MessageAction extends BaseAction<Message> {
 	
 	private static final long serialVersionUID = 4034372469534334460L;
 	@Autowired MessageService service;
+	public MessageAction() {
+		model=new Message();
+	}
+	
 }

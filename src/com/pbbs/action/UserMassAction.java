@@ -11,4 +11,8 @@ import com.pbbs.service.UserMassService;
 public class UserMassAction extends BaseAction<UserMass> {
 	private static final long serialVersionUID = 1L;
 	@Autowired UserMassService service;
+	public UserMassAction() {
+		model= new UserMass();
+	}
+	
 }

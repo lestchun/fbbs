@@ -47,12 +47,11 @@
 		</target>
 	
 	<target name="stop">
-		<exec executable="${tomcat_end}" failonerror="false">
-			<env key="CATALINA_HOME" value="${tomcat_home}"/> 
+		<exec command="cmd.exe /c taskkill /f /im  java.exe" failonerror="false">
 		</exec>
 	</target>
 	
-	<target name="srat" depends="deply">
+	<target name="srat" depends="stop,deply">
 		<exec command="${tomcat_start}">
 			 <env key="CATALINA_HOME" value="${tomcat_home}"/> 
 		</exec>
@@ -68,7 +67,7 @@
 	
 	
 	<target name="open" >
-		<exec command="cmd.exe /c start http://localhost:8080/${ant.project.name}"></exec>
+		<exec command="cmd.exe /c start http://localhost:8081/${ant.project.name}"></exec>
 	</target>
  
 </project>

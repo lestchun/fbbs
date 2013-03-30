@@ -20,7 +20,7 @@ public class UserMass implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private Mass mass;
+	private Modul modul;
 	private User user;
 	private String verify;
 	private String verifyInfo;
@@ -37,10 +37,10 @@ public class UserMass implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public UserMass(Integer id, Mass mass, User user, String verify,
+	public UserMass(Integer id,Modul modul, User user, String verify,
 			String verifyInfo) {
 		this.id = id;
-		this.mass = mass;
+		this.modul = modul;
 		this.user = user;
 		this.verify = verify;
 		this.verifyInfo = verifyInfo;
@@ -56,16 +56,7 @@ public class UserMass implements java.io.Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "mid")
-	public Mass getMass() {
-		return this.mass;
-	}
-
-	public void setMass(Mass mass) {
-		this.mass = mass;
-	}
+ 
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "uid")
@@ -93,6 +84,16 @@ public class UserMass implements java.io.Serializable {
 
 	public void setVerifyInfo(String verifyInfo) {
 		this.verifyInfo = verifyInfo;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "mid")
+	public Modul getModul() {
+		return modul;
+	}
+
+	public void setModul(Modul modul) {
+		this.modul = modul;
 	}
 
 }

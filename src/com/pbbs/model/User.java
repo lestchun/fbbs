@@ -1,14 +1,16 @@
 package com.pbbs.model;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -36,6 +38,7 @@ public class User implements java.io.Serializable {
 	private Set<Message> messages = new HashSet<Message>(0);
 	private Set<Modul> moduls = new HashSet<Modul>(0);
 	private Set<Mass> masses = new HashSet<Mass>(0);
+	private Set<Bbs> bbses = new HashSet<Bbs>(0);
 
 	// Constructors
 
@@ -180,6 +183,14 @@ public class User implements java.io.Serializable {
 
 	public void setMasses(Set<Mass> masses) {
 		this.masses = masses;
+	}
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+	public Set<Bbs> getBbses() {
+		return bbses;
+	}
+
+	public void setBbses(Set<Bbs> bbses) {
+		this.bbses = bbses;
 	}
 
 }
