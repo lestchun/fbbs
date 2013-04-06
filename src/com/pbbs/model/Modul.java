@@ -1,9 +1,15 @@
 package com.pbbs.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.OneToMany;
+
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -25,20 +31,27 @@ public class Modul implements java.io.Serializable {
 	private User user;
 	private Visiablely visiablely;
 	private String name;
-
+	private Set<UserMass> userMasses = new HashSet<UserMass>(0);
+	private Set<Bbs> bbses = new HashSet<Bbs>(0);
 	// Constructors
 
 	/** default constructor */
 	public Modul() {
 	}
+ 
 
-	/** full constructor */
-	public Modul(Mass mass, User user, Visiablely visiablely, String name) {
+	public Modul(Integer id, Mass mass, User user, Visiablely visiablely,
+			String name, Set<UserMass> userMasses, Set<Bbs> bbses) {
+		super();
+		this.id = id;
 		this.mass = mass;
 		this.user = user;
 		this.visiablely = visiablely;
 		this.name = name;
+		this.userMasses = userMasses;
+		this.bbses = bbses;
 	}
+
 
 	// Property accessors
 	@Id
@@ -91,4 +104,21 @@ public class Modul implements java.io.Serializable {
 		this.name = name;
 	}
 
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "modul")
+	public Set<UserMass> getUserMasses() {
+		return this.userMasses;
+	}
+
+	public void setUserMasses(Set<UserMass> userMasses) {
+		this.userMasses = userMasses;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "modul")
+	public Set<Bbs> getBbses() {
+		return this.bbses;
+	}
+
+	public void setBbses(Set<Bbs> bbses) {
+		this.bbses = bbses;
+	}
 }

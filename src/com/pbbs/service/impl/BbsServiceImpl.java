@@ -1,6 +1,8 @@
 package com.pbbs.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,6 +41,19 @@ public class BbsServiceImpl implements BbsService{
     public void deleteBbsById(Integer id) {
         dao.delete(id);
     }
+
+	public Page<Bbs> findBbsByModul(Integer modulId, Integer veify,
+			Pageable page) {
+		return dao.findBbsByModul(modulId, veify, page);
+	}
+
+	public Page<Bbs> find(Pageable page) {
+		return dao.findAll(page);
+	}
+
+	public Page<Bbs> findBbsByUser(Bbs bbs, Pageable page) {
+		return dao.findBbsByUser(bbs, page);
+	}
  
     
 }

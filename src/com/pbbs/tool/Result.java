@@ -6,7 +6,7 @@ public class Result {
 	
 	private String resultCode;
 	
-	public static final String EOOR_CODE="1001";
+	public static final String ERROR_CODE="1001";
 	public static final String SUCCESS_CODE="1000";
 	
 	private Object rows;

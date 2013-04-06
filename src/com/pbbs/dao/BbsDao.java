@@ -1,5 +1,7 @@
 package com.pbbs.dao;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
@@ -11,5 +13,10 @@ import com.pbbs.model.Bbs;
  */
  @NoRepositoryBean
 public interface BbsDao extends JpaRepository<Bbs,Integer>{
-/*${start}${content}${end}*/
+	 
+	 public Page<Bbs> findBbsByModul(Integer modulId, Integer veify,Pageable page) ;
+	 
+	 public Page<Bbs> findBbsByUser(Bbs bbs,Pageable page) ;
+	 
+	 /*${start}${content}${end}*/
 }

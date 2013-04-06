@@ -20,17 +20,18 @@ public class Bbs implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private Mass mass;
+	private Modul modul;
 	private Visiablely visiablely;
 	private String title;
 	private String content;
 	private Integer viewNum;
+	private Integer replayNum;
 	private Timestamp postTime;
 	private Timestamp updateTime;
 	private String veify;
 	private String veifyadvice;
 	private Integer status;
-
+	private User user;
 	// Constructors
 
 	/** default constructor */
@@ -43,12 +44,12 @@ public class Bbs implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Bbs(Integer id, Mass mass, Visiablely visiablely, String title,
+	public Bbs(Integer id, Modul modul, Visiablely visiablely, String title,
 			String content, Integer viewNum, Timestamp postTime,
 			Timestamp updateTime, String veify, String veifyadvice,
 			Integer status) {
 		this.id = id;
-		this.mass = mass;
+		this.modul = modul;
 		this.visiablely = visiablely;
 		this.title = title;
 		this.content = content;
@@ -71,15 +72,8 @@ public class Bbs implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "mid")
-	public Mass getMass() {
-		return this.mass;
-	}
 
-	public void setMass(Mass mass) {
-		this.mass = mass;
-	}
+
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "pid")
@@ -161,6 +155,32 @@ public class Bbs implements java.io.Serializable {
 
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "mid")
+	public Modul getModul() {
+		return modul;
+	}
+
+	public void setModul(Modul modul) {
+		this.modul = modul;
+	}
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "uid")
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Integer getReplayNum() {
+		return replayNum;
+	}
+
+	public void setReplayNum(Integer replayNum) {
+		this.replayNum = replayNum;
 	}
 
 }

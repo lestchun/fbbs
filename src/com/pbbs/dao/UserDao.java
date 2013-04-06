@@ -11,5 +11,6 @@ import com.pbbs.model.User;
  */
  @NoRepositoryBean
 public interface UserDao extends JpaRepository<User,Integer>{
+	 public User findByUserIdAndUsername(User user);
 /*${start}${content}${end}*/
 }
