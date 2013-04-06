@@ -27,10 +27,28 @@ public class BbsDaoImpl extends BaseDao<Bbs> implements BbsDao {
 		param.add(modulId);
 		if(null!= veify){
 			hql+=" and b.veify=? ";
-			param.add(veify);
+ 
+			param.add(veify+"");
 		}
 		hql+="  order by b.status asc ,b.updateTime desc , b.replayNum desc ";
 		return findByHQL(hql, param,page);
 	}
-	
+
+	public Page<Bbs> findBbsByUser(Bbs bbs, Pageable page) {
+		String hql=" from Bbs b where 1=1";
+		List<Object>param= new ArrayList<Object>();
+		if(null!=bbs){
+			if(null!=bbs.getUser()&&null!=bbs.getUser().getId()){
+				hql+=" and b.user.id=?";
+				param.add(bbs.getUser().getId());
+			}
+			if(null!=bbs.getVeify()){
+				hql+=" and b.veify=?";
+				param.add(bbs.getVeify());
+			}
+		}
+		hql+=" order by b.updateTime desc ";
+		return findByHQL(hql,param, page);
+	}
+
 }

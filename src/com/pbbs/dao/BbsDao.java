@@ -16,5 +16,6 @@ public interface BbsDao extends JpaRepository<Bbs,Integer>{
 	 
 	 public Page<Bbs> findBbsByModul(Integer modulId, Integer veify,Pageable page) ;
 	 
-	 /*${start}${content}${end}*/
+	 public Page<Bbs> findBbsByUser(Bbs bbs,Pageable page) ;
+	 
 }

@@ -1,6 +1,6 @@
 package com.pbbs.action;
 
-import static com.pbbs.tool.Result.EOOR_CODE;
+import static com.pbbs.tool.Result.ERROR_CODE;
 import static com.pbbs.tool.Result.SUCCESS_CODE;
 
 import org.apache.commons.lang.StringUtils;
@@ -31,7 +31,7 @@ public class MassAction extends BaseAction<Mass> {
 	
 	public String loadMass(){
 		result= new Result();
-		result.setResultCode(EOOR_CODE);
+		result.setResultCode(ERROR_CODE);
 		if(StringUtils.isBlank(id)){
 			result.setMsg("你没有选择社团");
 		}else{

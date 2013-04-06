@@ -50,6 +50,10 @@ public class BbsServiceImpl implements BbsService{
 	public Page<Bbs> find(Pageable page) {
 		return dao.findAll(page);
 	}
+
+	public Page<Bbs> findBbsByUser(Bbs bbs, Pageable page) {
+		return dao.findBbsByUser(bbs, page);
+	}
  
     
 }

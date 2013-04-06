@@ -29,10 +29,11 @@
 				<tr>
 						<td>
 							<ul style="width:300px">
-								<li><a href="javascript:void(0)" onclick="">个人信息</a></li>
-								<li><a href="javascript:void(0)" onclick="">我的消息</a></li>
-								<li><a href="javascript:void(0)" onclick="">我的社团</a></li>
-								<li><a href="javascript:void(0)" onclick="">我的帖子</a></li>
+ 
+								<li><a href="index.jsp">首页</a></li>
+								<li><a href="javascript:void(0)" onclick="loadPage('jsp/info.jsp')">个人信息</a></li>
+								<li><a href="javascript:void(0)" onclick="loadPage('listmUserMass',1)">我的社团</a></li>
+								<li><a href="javascript:void(0)" onclick="loadPage('listUserBBs',1)">我的帖子</a></li>
 							</ul>
 						</td>
 						<td>
@@ -56,7 +57,14 @@
 	
 	<script type="text/javascript">
 		
-	
+		function loadPage(url,type){
+		if(!!type){
+			$("#shwCenter").html("<iframe src='"+url+"' style='width:100%;height:100%'></iframe>");		
+		}else{
+			$("#shwCenter").load(url);
+		}
+			
+		}
 	
 	</script>
 	

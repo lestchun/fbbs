@@ -35,6 +35,15 @@
 			<result name="success">index.jsp</result>
 		</action>
 		
+ 
+		<action name="listmUserMass" class="UserMassAction" method="listmUserMass">
+			<result name="success">/WEB-INF/persion/myModel.jsp</result>
+		</action>
+		
+		<action name="listUserBBs" class="BbsAction" method="listUserBBs">
+			<result name="success">/WEB-INF/bbs/listBBsOp.jsp</result>
+		</action>
+		
 	</package>
 	<package name="login" extends="json-default">
 	
@@ -44,14 +53,7 @@
 			</result>
 		</action>
 		
-		<action name="test_01" class="UserAction" method="test_01">
-		
-			<result name="success" type="json">
-				<param name="root">result</param>
-			</result>
-		</action>
-		
-		<action name="test_02" class="BbsAction" method="test_01">
+		<action name="updatePass" class="UserAction" method="updatePass">
 			<result name="success" type="json">
 				<param name="root">result</param>
 			</result>
