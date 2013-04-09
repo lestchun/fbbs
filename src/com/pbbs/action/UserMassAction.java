@@ -37,5 +37,4 @@ public class UserMassAction extends BaseAction<UserMass> {
 		return SUCCESS;
 	}
 	
-	
 }

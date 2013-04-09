@@ -27,6 +27,7 @@ public class BbsDaoImpl extends BaseDao<Bbs> implements BbsDao {
 		param.add(modulId);
 		if(null!= veify){
 			hql+=" and b.veify=? ";
+ 
 			param.add(veify+"");
 		}
 		hql+="  order by b.status asc ,b.updateTime desc , b.replayNum desc ";

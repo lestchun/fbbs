@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
   </head>
-  <body>
+  <body> 
   		<table style="width:100%;" border=1>
 			<tr>
 				<td style="height:20px">社团名称</td>

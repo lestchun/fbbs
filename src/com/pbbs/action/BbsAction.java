@@ -26,6 +26,10 @@ public class BbsAction extends BaseAction<Bbs> {
 	}
 	
 	
+	
+	
+	
+	
 	public String goAddBBs(){
 		
 		

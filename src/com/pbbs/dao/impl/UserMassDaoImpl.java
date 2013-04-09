@@ -1,5 +1,6 @@
 package com.pbbs.dao.impl;
 
+ 
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import com.pbbs.dao.UserMassDao;
 import com.pbbs.model.UserMass;
 
 @Repository
-public class UserMassDaoImpl extends BaseDao<UserMass> implements UserMassDao {
+public  class UserMassDaoImpl extends BaseDao<UserMass> implements UserMassDao {
 	
 	@Autowired
 	public UserMassDaoImpl( EntityManagerFactory emf) {
