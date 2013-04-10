@@ -1,5 +1,9 @@
 package com.pbbs.service;
 
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.pbbs.model.UserMass;
 
 /**
@@ -31,5 +35,12 @@ public interface UserMassService {
      * @param id
      */
   public  void deleteUserMassById(Integer id);
+  /**
+   * 找出用户的社团
+   * @param model
+   * @param page
+   * @return
+   */
+  public Page<UserMass> findUserMassByUserAndVef(UserMass model,Pageable page);
     
 }
