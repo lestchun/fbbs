@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="comment" extends="struts-default">
+		<!-- 社团列表 -->
+		<action name="listShortMass" class="MassAction" method="listShortMass">
+			<result name="success">/WEB-INF/comment/massList.jsp</result>
+		</action>
+ 
+		<!-- 进入社团  -->
+		<action name="loadMass" class="MassAction" method="loadMass">
+			<result name="success">/WEB-INF/mass/mass.jsp</result>
+		</action>
+		<!-- 进入部门 -->
+		<action name="loadModul" class="ModulAction" method="loadModul">
+			<result name="success">/WEB-INF/mass/depart.jsp</result>
+		</action>
+		<!-- 列出部门帖子 -->
+		<action name="listModulBbs" class="BbsAction" method="listModulBbs">
+			<result name="success">/WEB-INF/mass/departBbsList.jsp</result>
+		</action>
+		<!-- 列出热帖 -->
+		<action name="getHotBbs" class="BbsAction" method="getHotBbs">
+			<result name="success">/WEB-INF/bbs/listSBBs.jsp</result>
+		</action>
+		<!-- 列出最新更新帖子 -->
+		<action name="getLastUpdate" class="BbsAction" method="getLastUpdate">
+			<result name="success">/WEB-INF/bbs/listSBBs.jsp</result>
+		</action>
+		<!-- 进入个人中心  -->
+		<action name="userCenter" class="UserAction" method="userCenter">
+			<result name="success">/WEB-INF/persion/index.jsp</result>
+		</action>
+		<!-- 登出 -->
+		<action name="logout" class="UserAction" method="logout">
+			<result name="success">index.jsp</result>
+		</action>
+ 		<!-- 列出用户加入的社团  -->
+		<action name="listmUserMass" class="UserMassAction" method="listmUserMass">
+			<result name="success">/WEB-INF/persion/myModel.jsp</result>
+		</action>
+		<!-- 列出用户发表的帖子 -->
+		<action name="listUserBBs" class="BbsAction" method="listUserBBs">
+			<result name="success">/WEB-INF/bbs/listBBsOp.jsp</result>
+		</action>
+		<!-- 进入发帖界面 -->
+		<action name="goPostBbs" class="ModulAction" method="goPostBbs">
+			<result name="success">/WEB-INF/bbs/postBBs.jsp</result>
+		</action>
+	</package>
+	<package name="login" extends="json-default">
+	
+		<action name="login" class="UserAction" method="login">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+		<action name="updatePass" class="UserAction" method="updatePass">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		
+	</package>
+</struts>    
