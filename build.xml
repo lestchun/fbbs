@@ -10,6 +10,16 @@
 	<property name="project_lib" location="${tomcat_projects}/WEB-INF/lib"></property>
 	<property name="local_lib" location="${basedir}/WebRoot/WEB-INF/lib"></property>
 	
+	<target name="cplib">
+		<copy todir="WebRoot/WEB-INF/lib" flatten="true">
+			<fileset dir="WebRoot/WEB-INF/lb">
+					<include name="**/*.jar"/>
+			</fileset>
+		</copy>
+	
+	</target>
+	
+	
 	<target name="clean" >
 		<delete dir="${tomcat_cacahe}"></delete>
 		<delete dir="${tomcat_projects}"></delete>
