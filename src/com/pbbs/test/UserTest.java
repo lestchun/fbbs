@@ -4,18 +4,13 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.pbbs.dao.MassDao;
-import com.pbbs.dao.UserDao;
-import com.pbbs.model.Mass;
 import com.pbbs.model.User;
 import com.pbbs.service.UserService;
 
@@ -27,7 +22,7 @@ public class UserTest {
     @Test
     public void testPage(){
     	
-    	Mass ma= new Mass();
+//    	Mass ma= new Mass();
     	User u= new User();
     	u.setId(1);
     	
@@ -37,10 +32,10 @@ public class UserTest {
     @Test
     public void insertUser(){
     	List<User> list= new ArrayList<User>();
-    	for(int i=0;i<10;i++){
+    	for(int i=0;i<1;i++){
 	    	User user= new User();
 	    	user.setGrade("09计科一班");
-	    	user.setNickname("雷xx"+i);
+	    	user.setNickname("黎xx"+i);
 	    	user.setUsername("leixx"+i);
 	    	user.setPassword("1234");
 	    	user.setRegiestTime(new Timestamp(System.currentTimeMillis()));

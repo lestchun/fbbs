@@ -1,6 +1,5 @@
 package com.pbbs.service;
 
-import com.pbbs.model.User;
 import com.pbbs.model.Visiablely;
 
 /**

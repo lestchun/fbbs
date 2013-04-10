@@ -14,6 +14,7 @@ import com.pbbs.service.BbsService;
  * Bbs业务服务实现类
  */
 @Service("BbsService")
+@Transactional
 public class BbsServiceImpl implements BbsService{
     
     

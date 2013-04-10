@@ -14,6 +14,7 @@ import com.pbbs.service.UserMassService;
  * UserMass业务服务实现类
  */
 @Service("UserMassService")
+@Transactional
 public class UserMassServiceImpl implements UserMassService{
     
     

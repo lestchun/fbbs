@@ -17,6 +17,5 @@ import com.pbbs.model.UserMass;
 public interface UserMassDao extends JpaRepository<UserMass,Integer>{
 	 public List<UserMass> findByUserIdAndMassId(Integer userId,Integer massId);
 	 public List<UserMass> findByUserIdAndMasss(Integer userId,String moduls);
- 
 	 public Page<UserMass> findByUserAndStatuc(UserMass model,Pageable page);
 }

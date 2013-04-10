@@ -1,5 +1,8 @@
 package com.pbbs.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.pbbs.model.Message;
 
 /**
@@ -31,4 +34,11 @@ public interface MessageService {
      * @param id
      */
   public  void deleteMessageById(Integer id);
+  /**
+   * 查找信息
+   * @param mess
+   * @param page
+   * @return
+   */
+  public Page<Message> searchMessage(Message mess,Pageable page);
 }

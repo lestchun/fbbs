@@ -14,7 +14,10 @@ public interface UserService {
      * @param User
      */
   public  void saveUser(User model);
-  
+  /**
+   * 批量保存用户
+   * @param model
+   */
   public  void saveUser(List<User> model);
     
     /**
@@ -36,8 +39,12 @@ public interface UserService {
      * @param id
      */
   public  void deleteUserById(Integer id);
-    
-  
-  public User findUserByUserNameAndUserName(User user);
-  
+    /**
+     * 通过用户名密码查找用户
+     * @param user
+     * @return
+     */
+  public User findUserByUserNameAndPassword(User user);
+ 
+  public boolean judgeUserExtis(String userName);
 }

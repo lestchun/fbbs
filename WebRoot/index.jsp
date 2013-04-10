@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<label>密&nbsp;&nbsp;码:</label>
 							<label><input type="password" name="model.password" style="width:100px"/></label>
 						</div>
- 						<div><input type="button"  value="登录" onclick="userLogin()"/><a href="">注册</a></div>
+ 						<div><input type="button"  value="登录" onclick="userLogin()"/><a href="jsp/register.jsp">注册</a></div>
 						</form>
 						</s:if>
 						<s:else>
@@ -67,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						热门帖子
 					</td>
 					<td align="center">
-						网站留言
+						系统消息
 					</td>		
 				</tr>
 				<tr>
@@ -80,20 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						 &nbsp;
 					</td>
 					<td>
-						<ul>
-							<li><a href="#">xxx 杯具咯  哈哈 </a></li>
-							<li><a href="#">xxx 杯具咯  哈哈 </a></li>
-							<li><a href="#">xxx 杯具咯  哈哈 </a></li>
-							<li><a href="#">xxx 杯具咯  哈哈 </a></li>
-							<li><a href="#">xxx 杯具咯  哈哈 </a></li>
-							<li><a href="#">xxx 杯具咯  哈哈 </a></li>
-							<li><a href="#">xxx 杯具咯  哈哈 </a></li>
-							<li><a href="#">xxx 杯具咯  哈哈 </a></li>
-							<li><a href="#">xxx 杯具咯  哈哈 </a></li>
-							<li><a href="#">xxx 杯具咯  哈哈 </a></li>
-							<li><a href="#">xxx 杯具咯  哈哈 </a></li>
-							<li><a href="#">xxx 杯具咯  哈哈 </a></li>
-						</ul>
+						<s:action name="getSystemMessage" executeResult="true"></s:action>
 					</td>		
 				</tr>
 				<tr > 

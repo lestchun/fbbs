@@ -8,11 +8,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
-import static com.pbbs.tool.Result.SUCCESS_CODE;
-
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -32,8 +27,29 @@ public class UserAction extends BaseAction<User> {
 		model= new User();
 	}
 	
+	public String regiestUser(){
+		result= new Result();
+		result.setResultCode(ERROR_CODE);
+		if(null==model){
+			result.setMsg("你没有输入要注册信息");
+		}else if(StringUtils.isBlank(model.getUsername())){
+			result.setMsg("用户名不能为空");
+		}else if(service.judgeUserExtis(model.getUsername())){
+			result.setMsg("该用户已经被注册");
+		}else{
+			service.saveUser(model);
+			result.setMsg("注册成功");
+			result.setResultCode(SUCCESS_CODE);
+		}
+		return SUCCESS;
+	}
+	
+	
+	/**
+	 * 进入用户个人中心
+	 * @return
+	 */
 	public String userCenter(){
-		
 		model=getLoginUser();
 		result= new Result();
 		result.setResultCode(ERROR_CODE);
@@ -45,18 +61,40 @@ public class UserAction extends BaseAction<User> {
 		}
 		return SUCCESS;
 	}
-	
-	
-	
-	public String logout(){
-		
-		session.put("user", null);
-		
+	/**
+	 * 检测用户名是否可用
+	 * @return
+	 */
+	public String checkUserName(){
+		result= new Result();
+		result.setResultCode(ERROR_CODE);
+		if(null==model||StringUtils.isBlank(model.getUsername())){
+			result.setMsg("你没有输入用户名");
+		} else{
+			 if(service.judgeUserExtis(model.getUsername())){
+				 result.setMsg("用户名以存在");
+			 }else{
+				 result.setMsg("恭喜你用户名可用");
+				 result.setResultCode(SUCCESS_CODE);
+			 }
+		}
 		return SUCCESS;
 	}
 	
+	/**
+	 * 登出系统
+	 * @return
+	 */
+	public String logout(){
+		session.put("user", null);
+		return SUCCESS;
+	}
+	
+	/**
+	 * 登录系统
+	 * @return
+	 */
 	public String login(){
-		
 		result= new Result();
 		result.setResultCode(ERROR_CODE);
 		System.out.println(model);
@@ -67,7 +105,7 @@ public class UserAction extends BaseAction<User> {
 		}else if(null==model.getPassword()){
 			result.setMsg("密码为空");
 		}else{
-			model=service.findUserByUserNameAndUserName(model);
+			model=service.findUserByUserNameAndPassword(model);
 			if(null==model){
 				result.setMsg("用户名或者密码错误");
 			}else{
@@ -87,7 +125,10 @@ public class UserAction extends BaseAction<User> {
 		return SUCCESS;
 	}
 	
-	
+	/**
+	 * 更新密码
+	 * @return
+	 */
 	public String updatePass(){
 		result= new Result();
 		result.setResultCode(ERROR_CODE);
@@ -113,9 +154,6 @@ public class UserAction extends BaseAction<User> {
 		}
 		return SUCCESS;
 	}
-	
-	
-	
 
 	public String getOldPass() {
 		return oldPass;
@@ -132,6 +170,5 @@ public class UserAction extends BaseAction<User> {
 	public void setNewPass(String newPass) {
 		this.newPass = newPass;
 	}
- 
 	
 }

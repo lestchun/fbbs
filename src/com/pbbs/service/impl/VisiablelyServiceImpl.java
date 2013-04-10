@@ -22,6 +22,7 @@ import com.pbbs.service.VisiablelyService;
  * Visiablely业务服务实现类
  */
 @Service("VisiablelyService")
+@Transactional
 public class VisiablelyServiceImpl implements VisiablelyService{
     
     

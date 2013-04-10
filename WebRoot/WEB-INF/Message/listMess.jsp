@@ -4,16 +4,12 @@
 <head>
 </head>
 <body>
-	<a href="${mid}">发表帖子</a>
 	<ul style="width:200px">
-		<s:iterator  value="lists.content" id="bbs">
+		<s:iterator  value="lists.content" id="mess">
 		<li>
-			<a href="loadMass?id=${bbs.id}" >${bbs.title}..........详情</a>
+			${mess.msg}
 		</li>
 		</s:iterator>
-		<li>
-			<jsp:include page="../comment/page.jsp"></jsp:include>
-		</li>
 	</ul>
 </body>
 </html>

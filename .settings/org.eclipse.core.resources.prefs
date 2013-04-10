@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
+encoding//WebRoot/WEB-INF/comment/regiestSuccess.jsp=UTF-8
+encoding//WebRoot/jsp/register.jsp=UTF-8
 encoding//src/com/pbbs/dao/BbsDao.java=UTF-8
 encoding//src/com/pbbs/dao/MassDao.java=UTF-8
 encoding/<project>=UTF-8

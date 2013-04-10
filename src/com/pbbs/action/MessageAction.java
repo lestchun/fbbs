@@ -2,6 +2,7 @@ package com.pbbs.action;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 
 import com.pbbs.model.Message;
@@ -14,6 +15,11 @@ public class MessageAction extends BaseAction<Message> {
 	@Autowired MessageService service;
 	public MessageAction() {
 		model=new Message();
+	}
+	
+	public String getSystemMessage(){
+		lists=service.searchMessage(null, new PageRequest(1, 20));
+		return SUCCESS;
 	}
 	
 }

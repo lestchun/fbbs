@@ -39,7 +39,8 @@
            <tx:annotation-driven transaction-manager="transactionManager"/> 
            
            <!-- 配置Spring Data JPA扫描目录--> 
-           <jpa:repositories base-package="com.pbbs.dao"/>
+           <jpa:repositories base-package="com.pbbs.dao" entity-manager-factory-ref="entityManagerFactory" 
+ 			transaction-manager-ref="transactionManager"/>
 
         
        

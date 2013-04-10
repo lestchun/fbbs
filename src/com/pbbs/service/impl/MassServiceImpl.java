@@ -15,6 +15,7 @@ import com.pbbs.service.MassService;
  * Mass业务服务实现类
  */
 @Service("MassService")
+@Transactional
 public class MassServiceImpl implements MassService{
     @Autowired
     private MassDao dao;//注入MassDao

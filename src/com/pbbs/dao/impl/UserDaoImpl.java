@@ -17,13 +17,17 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
 		super(User.class, emf.createEntityManager());
 	}
 
-	public User findByUserIdAndUsername(User user) {
+	public User findByUsernameAndPassword(User user) {
 		List<User> list= findList("from User u where u.username=? and password=? ", new Object[]{user.getUsername(),user.getPassword()});
 		if(null==list||0==list.size()){
 			return null;
 		}else{
 			return list.get(0);
 		}
+	}
+
+	public List<User> findByUserName(String userName) {
+		return findList("from User u where u.username=? ", new Object[]{userName});
 	}
 	
 }
