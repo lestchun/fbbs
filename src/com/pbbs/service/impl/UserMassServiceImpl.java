@@ -21,7 +21,7 @@ public class UserMassServiceImpl implements UserMassService{
     @Autowired
     private UserMassDao dao;//注入UserMassDao
 
-    @Transactional
+    @Transactional(readOnly=false)
     public void saveUserMass(UserMass model) {
         dao.save(model);
         
@@ -33,16 +33,16 @@ public class UserMassServiceImpl implements UserMassService{
     }
 
     
-    @Transactional
+    @Transactional(readOnly=false)
     public void updateUserMass(UserMass model) {
         dao.save(model);
     }
 
-    @Transactional
+    @Transactional(readOnly=false)
     public void deleteUserMassById(Integer id) {
         dao.delete(id);
     }
-
+    @Transactional(readOnly=true)
 	public Page<UserMass> findUserMassByUserAndVef(UserMass model, Pageable page) {
 		return dao.findByUserAndStatuc(model, page);
 	}

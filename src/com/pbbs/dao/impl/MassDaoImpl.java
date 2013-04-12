@@ -22,16 +22,16 @@ public class MassDaoImpl extends BaseDao<Mass> implements MassDao {
 	}
 
 	public Page<Mass> listMass(Integer userId,Integer vify, Pageable page) {
+		List<Object> param= new ArrayList<Object>();
+		String  hql=" select m.mass from UserMass  m where m.user.id=?";
 		if(null!=userId){
-			List<Object> param= new ArrayList<Object>();
-			String  hql=" select m.mass from UserMass  m where m.user.id=?";
 			param.add(userId);
 			if(null!=vify){
 				hql+="  and m.verify=?";
 				param.add(vify);
 			}
 			return findByHQL(hql, param, page);
-		}
+		} 
 		return findAll(page);
 	}
 	

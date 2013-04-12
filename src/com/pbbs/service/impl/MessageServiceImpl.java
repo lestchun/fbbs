@@ -24,23 +24,6 @@ public class MessageServiceImpl implements MessageService{
     @Transactional
     public void saveMessage(Message model) {
         dao.save(model);
-        
-    }
-
-    @Transactional(readOnly=true)
-    public Message findMessageById(Integer id) {
-        return dao.findOne(id);
-    }
-
-    
-    @Transactional
-    public void updateMessage(Message model) {
-        dao.save(model);
-    }
-
-    @Transactional
-    public void deleteMessageById(Integer id) {
-        dao.delete(id);
     }
 
 	public Page<Message> searchMessage(Message mess, Pageable page) {

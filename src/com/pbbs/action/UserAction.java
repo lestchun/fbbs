@@ -154,6 +154,11 @@ public class UserAction extends BaseAction<User> {
 		}
 		return SUCCESS;
 	}
+	
+	public String listWelUser(){
+		lists=service.listWelUser(getPages());
+		return SUCCESS;
+	}
 
 	public String getOldPass() {
 		return oldPass;

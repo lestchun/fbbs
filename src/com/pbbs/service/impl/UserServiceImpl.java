@@ -5,6 +5,9 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,6 +28,7 @@ public class UserServiceImpl implements UserService{
     
     @Autowired UserDao dao;//注入UserDao
     @Autowired MessageDao messDao; 
+    @Modifying
     @Transactional    
 	public void saveUser(User model) {
 		
@@ -57,9 +61,10 @@ public class UserServiceImpl implements UserService{
     public void updateUser(User model) {
         dao.save(model);
     }
-    @Transactional
+    @Transactional(readOnly=false)
     public void deleteUserById(Integer id) {
         dao.delete(id);
+//        dao.deleteAll();
     }
     @Transactional(readOnly=true)
 	public User findUserByUserNameAndPassword(User user) {
@@ -69,6 +74,9 @@ public class UserServiceImpl implements UserService{
 	public boolean judgeUserExtis(String userName) {
 		List<User> l=dao.findByUserName(userName);
 		return !(null==l||0==l.size());
+	}
+	public Page<User> listWelUser(Pageable page) {
+		return dao.listWelUser(page);
 	}
     
     

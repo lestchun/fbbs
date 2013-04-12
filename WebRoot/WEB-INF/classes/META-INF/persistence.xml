@@ -20,11 +20,10 @@
             <!--设置外连接抓取树的最大深度 -->
             <property name="hibernate.max_fetch_depth" value="3" />
             <!--自动输出schema创建DDL语句 -->
-            <property name="hibernate.hbm2ddl.auto" value="update" />    
-            <property name="defaultAutoCommit" value="true"/> 
+            <property name="hibernate.hbm2ddl.auto" value="update" />
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
-            <property name="javax.persistence.validation.mode" value="none"/>
+            <property name="javax.persistence.validation.mode" value="none"/>    
         </properties>
     </persistence-unit>
             

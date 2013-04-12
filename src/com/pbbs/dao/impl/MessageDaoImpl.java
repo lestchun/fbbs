@@ -22,6 +22,7 @@ public class MessageDaoImpl extends BaseDao<Message> implements MessageDao {
 		if(null==message){
 			hql+=" and m.revicesUser is null ";
 		}
+		hql+=" order by m.sendTime desc ";
 		return findByHQL(hql, page);
 	}
 	

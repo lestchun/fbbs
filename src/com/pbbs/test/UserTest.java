@@ -7,6 +7,7 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -46,5 +47,13 @@ public class UserTest {
     	userdao.saveUser(list);
     	System.out.println("save it ");
     }
-
+    @Test
+    public void testDelete(){
+    	userdao.deleteUserById(18);
+    }
+    
+    @Test
+    public void testCalc(){
+    	System.out.println(userdao.listWelUser(new PageRequest(1, 20)));
+    }
 }

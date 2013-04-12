@@ -8,6 +8,7 @@ import org.apache.commons.lang.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Controller;
 
 import com.pbbs.model.Mass;
@@ -47,4 +48,9 @@ public class MassAction extends BaseAction<Mass> {
 		return SUCCESS;
 	}
 	
+	public String massRank(){
+		lists=service.ListMass(null,null, new PageRequest(0, 30,Direction.DESC,"num"));
+		return SUCCESS;
+				
+	}
 }

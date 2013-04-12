@@ -4,7 +4,7 @@
 <head>
 </head>
 <body>
-	<ul style="width:200px">
+	<ul style="width:200px;margin-left: 0px">
 		<s:iterator  value="lists.content" id="mess">
 		<li>
 			${mess.msg}

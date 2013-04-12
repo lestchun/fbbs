@@ -18,7 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="description" content="This is my page">
   </head>
   <body>
-  <table style="width:100%;hrigth:100%">
+  <table style="width:100%;hrigth:100%;background-image:'image/bg.jpg'" >
   	<tr>
   		<td>
   		</td>
@@ -36,7 +36,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<s:action name="listShortMass" executeResult="true"></s:action>
 					</td>
 					<td style="width:500px" colspan="2">
-						滚动图片
+						<marquee direction="left" onmouseover="this.stop()" onmouseout="this.start()">
+							<img style="width:300px;height:200px" src="img/1.jpg">
+							<img style="width:300px;height:200px" src="img/2.jpg">
+							<img style="width:300px;height:200px" src="img/3.jpg">
+							<img style="width:300px;height:200px" src="img/4.jpg">
+							<img style="width:300px;height:200px" src="img/5.jpg">
+							<img style="width:300px;height:200px" src="img/6.jpg">
+							<img style="width:300px;height:200px" src="img/7.jpg">
+						</marquee>
 					</td>
 					<td style="width: 300px;height:200px">
 						<div style="width:250px"  id="userLogins"> 
@@ -80,7 +88,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						 &nbsp;
 					</td>
 					<td>
-						<s:action name="getSystemMessage" executeResult="true"></s:action>
+						<s:action name="getSystemMessage" executeResult="true">
+							<s:param name="page" value="1"></s:param>
+							<s:param name="size" value="10"></s:param>
+						</s:action>
 					</td>		
 				</tr>
 				<tr > 

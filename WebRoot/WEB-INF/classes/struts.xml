@@ -6,6 +6,11 @@
 		<action name="listShortMass" class="MassAction" method="listShortMass">
 			<result name="success">/WEB-INF/comment/massList.jsp</result>
 		</action>
+		
+		<!-- 社团排行 -->
+		<action name="massRank" class="MassAction" method="massRank">
+			<result name="success">/WEB-INF/mass/massRank.jsp</result>
+		</action>
  
 		<!-- 进入社团  -->
 		<action name="loadMass" class="MassAction" method="loadMass">
@@ -27,6 +32,27 @@
 		<action name="getLastUpdate" class="BbsAction" method="getLastUpdate">
 			<result name="success">/WEB-INF/bbs/listSBBs.jsp</result>
 		</action>
+		
+		<!-- 列出置顶帖子 -->
+		<action name="getPostHead" class="BbsAction" method="getPostHead">
+			<result name="success">/WEB-INF/bbs/listSBBs.jsp</result>
+		</action>
+		
+		<!-- 列出推荐帖子 -->
+		<action name="getRecommend" class="BbsAction" method="getRecommend">
+			<result name="success">/WEB-INF/bbs/listSBBs.jsp</result>
+		</action>
+		
+		<!-- 列出推荐话题 -->
+		<action name="listRec" class="BbsAction" method="getRecommend">
+			<result name="success">/WEB-INF/bbs/listRec.jsp</result>
+		</action>
+		
+		<!-- 列出加精帖子 -->
+		<action name="getDigest" class="BbsAction" method="getDigest">
+			<result name="success">/WEB-INF/bbs/listSBBs.jsp</result>
+		</action>
+		
 		<!-- 进入个人中心  -->
 		<action name="userCenter" class="UserAction" method="userCenter">
 			<result name="success">/WEB-INF/persion/index.jsp</result>
@@ -51,6 +77,11 @@
 		<!-- 注册用户 -->
 		<action name="regiestUser" class="UserAction" method="regiestUser">
 			<result name="success">/WEB-INF/comment/regiestSuccess.jsp</result>
+		</action>
+		
+		<!-- 人气用户 -->
+		<action name="listWelUser" class="UserAction" method="listWelUser">
+			<result name="success">/WEB-INF/persion/myModel.jsp</result>
 		</action>
 		
 		<!-- 进入发帖界面 -->

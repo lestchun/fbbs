@@ -5,7 +5,6 @@
 	  <script type="text/javascript" src="${pageContext.request.contextPath}/js/json2.js"></script>
 	  <script type="text/javascript" src="${pageContext.request.contextPath}/js/mask.js"></script>
 	  <script type="text/javascript" src="${pageContext.request.contextPath}/js/tool.js"></script>
-	  
 	  <img alt="吉首大学" src="${pageContext.request.contextPath}/image/jsu.png">
 	  
 	  <div style="float:right;margin-right: 100px">
