@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="fbbs"  basedir=".">
+	
+	<property name="tomcat_home"   location="D:\Program Files\apache-tomcat-6.0.18\apache-tomcat-6.0.18\apache-tomcat-6.0.18"></property>	
+	
+	<property name="tomcat_projects" location="${tomcat_home}/webapps/${ant.project.name}"></property>	
+	<property name="tomcat_cacahe" location="${tomcat_home}/work/Catalina/localhost"></property>	
+	<property name="tomcat_start" location="${tomcat_home}/bin/startup.bat"></property>
+	<property name="tomcat_end" location="${tomcat_home}/bin/shutdown.bat"></property>
+	<property name="project_lib" location="${tomcat_projects}/WEB-INF/lib"></property>
+	<property name="local_lib" location="${basedir}/WebRoot/WEB-INF/lib"></property>
+	
+	<target name="clean" >
+		<delete dir="${tomcat_cacahe}"></delete>
+		<delete dir="${tomcat_projects}"></delete>
+		<mkdir dir="${tomcat_projects}"/>
+	</target>
+	
+	<target name="deply" depends="clean">
+		<copy todir="${tomcat_projects}">
+			<fileset dir="WebRoot">
+				<exclude name=".*/**"/>
+				<exclude name="**/lib/**"/>
+			</fileset>
+		</copy>
+		<mkdir dir="${project_lib}"/>
+		<copy todir="${project_lib}" flatten="true">
+			<fileset dir="${local_lib}">
+				<include name="**/*.jar" />
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="copy" >
+			<copy todir="${tomcat_projects}" overwrite="true">
+				<fileset dir="WebRoot" >
+					<exclude name=".*/**"/>
+					<exclude name="**/lib/**"/>
+				</fileset>
+			</copy>
+			<mkdir dir="${project_lib}"/>
+			<copy todir="${project_lib}" flatten="true">
+				<fileset dir="${local_lib}">
+					<include name="**/*.jar" />
+				</fileset>
+			</copy>
+		</target>
+	
+	<target name="stop">
+		<exec command="cmd.exe /c taskkill /f /im  java.exe" failonerror="false">
+		</exec>
+	</target>
+	
+	<target name="srat" depends="stop,deply">
+		<exec command="${tomcat_start}">
+			 <env key="CATALINA_HOME" value="${tomcat_home}"/> 
+		</exec>
+	</target>
+	
+	<target name="srat-open" depends="stop,deply">
+		<exec command="${tomcat_start}">
+			 <env key="CATALINA_HOME" value="${tomcat_home}"/> 
+		</exec>
+		<antcall target="open"></antcall>
+	</target>
+	
+	
+	
+	<target name="open" >
+		<exec command="cmd.exe /c start http://localhost:8081/${ant.project.name}"></exec>
+	</target>
+ 
+</project>

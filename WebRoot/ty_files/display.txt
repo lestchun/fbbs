@@ -1,0 +1,295 @@
+/**轻-疯狂广告(600*350)*/
+function fn_adsp_lAWnWZhA30NpNC70WPY3() {try {
+    var second = "8000";
+    if (!(second == "null" || second == "") && second != "0") {
+        second = parseInt(second);
+    } else {
+        second = 6000;
+    }
+     // 疯狂母版
+    fn_adsp_lAWnWZhA30NpNC70WPY3.setCenterFlash = function(v) {
+      var div = document.getElementById("adsp_rp_crazy_div");
+      div.style.display = v;
+      if (v == 'block') {
+        setTimeout(function(){fn_adsp_lAWnWZhA30NpNC70WPY3.setCenterFlash("none");fn_adsp_lAWnWZhA30NpNC70WPY3.setleftFlash("block");}, second);
+      }
+    }
+
+    fn_adsp_lAWnWZhA30NpNC70WPY3.setleftFlash = function(v) {
+      leftDiv.style.display = v;
+    }
+    var maskDiv, parentDiv, tarLink;
+    var closeLink = document.createElement("a");
+    var centerDiv = document.createElement("div");
+    centerDiv.style.position = "absolute";
+    centerDiv.style.left = ((document.body.clientWidth - 600) >> 1) + "px";
+    centerDiv.style.top = "180px";
+    centerDiv.style.zIndex = "100";
+    centerDiv.style.cursor = "pointer";
+    centerDiv.style.display = "none";
+
+    var closeLink = document.createElement("img");
+    closeLink.src = "http://static.tianyaui.com/img/static/2008/tygg/cclose.jpg";
+    closeLink.style.fontSize = "14px";
+    closeLink.setAttribute("id", "adsp_crazy_close_btn");
+    closeLink.style.cursor = "pointer"; 
+    closeLink.style.display = "block";
+    closeLink.style.margin = "0 0 0 529px";
+
+    var leftDiv = document.createElement("div");
+    leftDiv.style.position = "absolute";
+    leftDiv.style.left = 0;
+    leftDiv.style.top = (window.screen.availHeight - 350) + "px";
+    leftDiv.style.zIndex = "100";
+    leftDiv.style.cursor = "pointer";
+
+    var replyLink = document.createElement("img");
+    replyLink.src = "http://static.tianyaui.com/img/static/2008/tygg/r20.jpg";
+    replyLink.setAttribute("id", "adsp_crazy_reply_btn");
+    replyLink.style.display = "block";
+
+        var centerImg = document.createElement("embed");
+        centerImg.style.left = 0;
+        centerImg.type = "application/x-shockwave-flash";
+        centerImg.width = "600";
+        centerImg.height = "350";
+        centerImg.src = "http://801.tianyaui.com/res/2013/0412/1365734571873.swf";
+        centerImg.setAttribute("wmode", "transparent");
+
+            centerImg.style.position = "absolute";
+
+            tarLink = document.createElement("a");
+            tarLink.href = "http://807.tianya.cn/count?t=gdX5MWS1mhz8fsGnwL82&backurl=http://sale.suning.com/images/advertise/007/0yuanxd/index.html?utm_source=zq-ty&utm_medium=syll&utm_content=qingchun&utm_campaign=paiqi";
+            tarLink.target = "_blank";
+
+            maskDiv = document.createElement("div");
+            maskDiv.style.position = "relative";
+            maskDiv.style.left = 0;
+            maskDiv.style.right = 0;
+            maskDiv.style.top = -22;
+            maskDiv.style.width = "600px";
+            maskDiv.style.height = "350px";
+            maskDiv.style.zIndex = "10";
+            maskDiv.style.backgroundColor = "#FFFFFF"
+            maskDiv.style.opacity = "0";
+            try { maskDiv.style.filter = "alpha(opacity=0)"; } catch (e) { }
+            maskDiv.style.cursor = "pointer";
+            tarLink.appendChild(maskDiv);
+
+            var parentDiv = document.createElement("div");
+            parentDiv.style.position = "relative";
+            parentDiv.style.display = "block";
+            parentDiv.style.width = "600px";
+            parentDiv.style.height = "350px";
+            parentDiv.appendChild(centerImg);
+            parentDiv.appendChild(tarLink);
+            parentDiv.appendChild(closeLink);
+            centerDiv.appendChild(parentDiv);
+
+
+        var leftImg = document.createElement("img");
+        leftImg.style.left = 0;
+        leftImg.src = "http://801.tianyaui.com/res/2013/0412/1365734583154.jpg";
+        leftImg.onclick = function() {window.open("http://sale.suning.com/images/advertise/007/0yuanxd/index.html?utm_source=zq-ty&utm_medium=syll&utm_content=qingchun&utm_campaign=paiqi");};
+        leftImg.style.cursor = "pointer";
+            var leftLnk = document.createElement("a");
+            leftLnk.href = "http://807.tianya.cn/count?t=gdX5MWS1mhz8fsGnwL82&backurl=http://sale.suning.com/images/advertise/007/0yuanxd/index.html?utm_source=zq-ty&utm_medium=syll&utm_content=qingchun&utm_campaign=paiqi";
+            leftLnk.target = "_blank";
+            leftLnk.style.display = "block";
+            leftLnk.appendChild(leftImg);
+            leftDiv.appendChild(leftLnk);
+
+    centerDiv.appendChild(closeLink);
+    centerDiv.setAttribute("id", "adsp_rp_crazy_div");
+    leftDiv.appendChild(replyLink);
+    leftDiv.setAttribute("id", "adsp_rp_crazy_left_div");
+
+    var temp = document.createElement("div");
+    temp.appendChild(centerDiv);
+    temp.appendChild(leftDiv);
+    document.write(temp.innerHTML);
+    closeLink = document.getElementById("adsp_crazy_close_btn");
+    closeLink.onclick = function () { fn_adsp_lAWnWZhA30NpNC70WPY3.setCenterFlash("none"); };    
+
+    replyLink = document.getElementById("adsp_crazy_reply_btn");
+    replyLink.onclick = function () { fn_adsp_lAWnWZhA30NpNC70WPY3.setCenterFlash("block"); };
+
+    leftDiv = document.getElementById("adsp_rp_crazy_left_div");
+
+    function DivFloat(obj) {
+        this.interval = 0;
+        this.leftDiv = obj;
+        this.dom = (document.compatMode == 'CSS1Compat' ? document.documentElement : document.body);
+        this.render = function() {
+            var top = 0;
+            this.scrollTop = window.pageYOffset || this.dom.scrollTop;
+            top = this.scrollTop - this.leftDiv.offsetHeight + 500 + 20;
+
+            this.leftDiv.style.top = top  + 'px';
+        }
+
+        this.startFloat = function(objName) {
+            this.interval = setInterval(function(o) { return function() { o.render(); } } (this), 400);
+        }
+        this.stopFloat = function() {
+            window.clearInterval(this.interval);
+        }
+    }
+
+
+      var cur_url = new String(window.location);
+      var cur_domain = cur_url.match(/http:\/\/([^\/]+)\//i)[1];
+      var cur_date = new Date();
+      var cur_time = cur_date.getHours() * 3600 + cur_date.getMinutes() * 60 + cur_date.getSeconds();
+      var diff_time = 0;
+      var pre_time = parseInt(__global.getPartCookie('__adsp_lAWnWZhA30NpNC70WPY3', "pt"));
+      var max_diff_time = parseInt("null");
+
+      if (isNaN(pre_time)) {
+        diff_time = 0;
+      } else {
+        diff_time = cur_time - pre_time;
+      }
+      if (max_diff_time <= 0 || isNaN(max_diff_time)) {
+        max_diff_time = 30;
+      }
+
+      var float_obj = new DivFloat(leftDiv);
+      float_obj.startFloat();
+      if (diff_time > max_diff_time || diff_time == 0) {
+        fn_adsp_lAWnWZhA30NpNC70WPY3.setCenterFlash("block");
+        setTimeout(function () { fn_adsp_lAWnWZhA30NpNC70WPY3.setCenterFlash("none"); }, second);
+        __global.setPartCookie('__adsp_lAWnWZhA30NpNC70WPY3', "pt", cur_time, 1, "/", cur_domain, false);
+      }
+
+} catch (e) {}}
+fn_adsp_lAWnWZhA30NpNC70WPY3();
+/**企业空间推荐图文*/
+function fn_adsp_9ns2t5hYACuflRWAsDAZ() {try {
+   // var datas = new Array();
+    //datas.push({"name":'专为富人打造的一场约会',"url":'http://807.tianya.cn/count?t=MZHGP8sVyA4l8wpf3Bad&backurl=http://sale.suning.com/images/advertise/001/zympxyzkdd20130331/index.html?utm_source=zq-ty&utm_medium=ltbklb&utm_campaign=gd',"pic":'http://801.tianyaui.com/res/2013/0407/1365325792701.jpg',"summary":''});    
+   // window.BBS_Ad_Exciting.picList.init(datas);
+} catch (e) {}}
+fn_adsp_9ns2t5hYACuflRWAsDAZ();
+/**轻-矩形四(180*300)*/
+function fn_adsp_J0k1hutpuFIbXqHMhYkK() {try {
+    // init
+    var elems = new Array();
+    var max_count = parseInt("1");
+    var count = 0;
+
+    // loop data
+    elems.push({"title":"1","res":"http://801.tianyaui.com/res/2013/0201/1359709788143.gif","url":"http://807.tianya.cn/count?t=fQ6n4lwJd79NCW3P55iU&backurl=http://www.wyn88.com/CoOperate/yuan99.html?sid=5042"});
+    count ++;
+
+    // show
+    var rnd_idx = Math.floor(Math.random() * (elems.length));
+    var elm = elems[rnd_idx];
+
+    if ( elm.res.endsWith("jpg") || elm.res.endsWith("gif") || elm.res.endsWith("png") ) {
+      if ( elm.url == "" ) {
+          canvas.innerHTML = '<div class="qing_ad_hd"></div><IMG width="180" height="300" src="' + elm.res + '" border="0"><div class="qing_ad_bd"></div>';
+      } else {
+          canvas.innerHTML = '<div class="qing_ad_hd"></div><A href="' + elm.url + '" ' + a_target + '><IMG width="180" height="300" src="' + elm.res + '" border="0"></A><div class="qing_ad_bd"></div>';
+      }
+    } else if ( elm.res.endsWith("swf") ) {
+      if ( elm.url == "" ) {
+        canvas.innerHTML = '<div class="qing_ad_hd"></div><EMBED id="q_button_180_300_swf" width="180" height="300" wmode="opaque" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" quality="High" src="' + elm.res + '"><div class="qing_ad_bd"></div>';
+      } else {
+        canvas.innerHTML = '<div class="qing_ad_hd"></div><div style="position: relative;width:180px;height:300px;background-color:#F5F9FA"><embed id="q_button_180_300_swf" style="position:absolute;z-index:0;left:0;" src="' + elm.res + '"quality="high" width="180" height="300" pluginspage="http://www.macromedia.com/go/getflashplayer"type="application/x-shockwave-flash" wmode="opaque"><a href="' + elm.url + '" target="_blank" style="cursor:pointer"><div style="position:relative;filter:alpha(opacity=0);left:0;top:0;width:180px;height:300px;z-index:10;opacity:0;background-color:#000000"></div></a></div><div class="qing_ad_bd"></div>';
+      }
+    } else {
+      canvas.innerHTML ='<iframe width="180" height="300" hspace=0 vspace=0 frameborder=0 marginheight=0 marginwidth=0 scrolling=no src="' + elm.res + '"  name="1"></iframe>';
+    }
+
+} catch (e) {}}
+fn_adsp_J0k1hutpuFIbXqHMhYkK();
+/**轻-通栏二(670*90)*/
+function fn_adsp_P5lSxpdeI594DD45f1ZH() {try {
+    // init
+    var elems = new Array();
+    var max_count = parseInt("1");
+    var count = 0;
+
+    // loop data
+    elems.push({"title":"http://groups.tianya.cn/tribe/showArticle.jsp?groupId=488430&amp;articleId=1b46e7c26a6729e6196aa93627cebc7f","res":"http://801.tianyaui.com/res/2013/0211/1360546141099.jpg","url":"http://807.tianya.cn/count?t=XXhX8nHAz92kZVLPpxZO&backurl=http://groups.tianya.cn/tribe/showArticle.jsp?groupId=488430&articleId=1b46e7c26a6729e6196aa93627cebc7f"});
+    count ++;
+
+    // show
+    var rnd_idx = Math.floor(Math.random() * (elems.length));
+    var elm = elems[rnd_idx];
+
+    if ( elm.res.endsWith("jpg") || elm.res.endsWith("gif") || elm.res.endsWith("png") ) {
+      if ( elm.url == "" ) {
+          canvas.innerHTML = '<div class="qing_ad_hd"></div><IMG width="670" height="90" src="' + elm.res + '" border="0"><div class="qing_ad_bd"></div>';
+      } else {
+          canvas.innerHTML = '<div class="qing_ad_hd"></div><A href="' + elm.url + '" ' + a_target + '><IMG width="670" height="90" src="' + elm.res + '" border="0"></A><div class="qing_ad_bd"></div>';
+      }
+    } else if ( elm.res.endsWith("swf") ) {
+      if ( elm.url == "" ) {
+        canvas.innerHTML = '<div class="qing_ad_hd"></div><EMBED id="q_topbanner_685_90_2_swf" width="670" height="90" wmode="opaque" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" quality="High" src="' + elm.res + '"><div class="qing_ad_bd"></div>';
+      } else {
+        canvas.innerHTML = '<div class="qing_ad_hd"></div><div style="position: relative;width:670px;height:90px;background-color:#F5F9FA"><embed id="q_topbanner_685_90_2_swf" style="position:absolute;z-index:0;left:0;" src="' + elm.res + '"quality="high" width="670" height="90" pluginspage="http://www.macromedia.com/go/getflashplayer"type="application/x-shockwave-flash" wmode="opaque"><a href="' + elm.url + '" target="_blank" style="cursor:pointer"><div style="position:relative;filter:alpha(opacity=0);left:0;top:0;width:670px;height:90px;z-index:10;opacity:0;background-color:#000000"></div></a></div><div class="qing_ad_bd"></div>';
+      }
+    } else {
+      canvas.innerHTML ='<iframe width="670" height="90" hspace=0 vspace=0 frameborder=0 marginheight=0 marginwidth=0 scrolling=no src="' + elm.res + '"  name="http://groups.tianya.cn/tribe/showArticle.jsp?groupId=488430&amp;amp;articleId=1b46e7c26a6729e6196aa93627cebc7f"></iframe>';
+    }
+
+} catch (e) {}}
+fn_adsp_P5lSxpdeI594DD45f1ZH();
+/**企业空间推荐文字链（5条）*/
+function fn_adsp_ZZ5kmgEzpfzTvDbC0noY() {try {
+    var datas = new Array();
+    datas.push({"name":'亲爱的，我等你好久了。',"url":'http://807.tianya.cn/count?t=2Df8bLBIeiYDORX1ZJzz&backurl=http://2000.bbs.tianya.cn/djmanage/djpage.asp?djid=12725',"pic":''});    
+    datas.push({"name":'自己会穿鞋子的狗狗你见过吗',"url":'http://807.tianya.cn/count?t=kUt63PW3fqyKJK1COHMI&backurl=http://boqii.tianya.cn/',"pic":''});    
+    datas.push({"name":'赶快抢特价房!!',"url":'http://807.tianya.cn/count?t=CJMcZP2vUHklaXzNWCOx&backurl=http://travel.tianya.cn/hotel/hk_mac.html?hmsr=%E7%A4%BE%E5%8C%BA&hmmd=%E6%8E%A8%E8%8D%90%E8%AF%9D%E9%A2%98&hmpl=%E5%85%83%E6%97%A6%E6%98%A5%E8%8A%82&hmkw=%E6%8E%A8%E8%8D%90%E8%AF%9D%E9%A2%98&hmci=',"pic":''});    
+    datas.push({"name":'最后2000份好奇纸尿裤免费拿！',"url":'http://807.tianya.cn/count?t=yObOP5Rw2XFjzq1ZGoJW&backurl=http://bbs.tianya.cn/post-98-859467-1.shtml',"pic":''});    
+    datas.push({"name":'78元乐享温泉鸳鸯浴',"url":'http://807.tianya.cn/count?t=P4YUUyYgtWQx3h3ow32G&backurl=http://page.tianya.cn/wqhome/shop?c=30228&couid=45480',"pic":''});    
+   // window.BBS_Ad_Exciting.txtList.picList.init(datas);
+   // window.BBS_Ad_Exciting.txtList.init(datas);//旅游推荐文字
+} catch (e) {}}
+fn_adsp_ZZ5kmgEzpfzTvDbC0noY();
+/**帖子列表页-广告性能专用*/
+function fn_adsp_cNjqLo7PN4VhtHR4fOWC() {try {
+} catch (e) {}}
+fn_adsp_cNjqLo7PN4VhtHR4fOWC();
+/**轻-矩形二-图文(180*150+12字)*/
+function fn_adsp_ycHMSA6G9trYvXS9fuGI() {try {
+    var datas = new Array();
+    datas.push({"name":'送花送钻，不如带她去泡泡',"url":'http://807.tianya.cn/count?t=ntk8CwhhlBv665pOLmNv&backurl=http://page.tianya.cn/wqhome/shop?c=30228&couid=45480',"pic":'http://801.tianyaui.com/res/2013/0401/1364799028216.jpg',"summary":''});    
+    window.BBS_Ad_180_150.init(datas);
+} catch (e) {}}
+fn_adsp_ycHMSA6G9trYvXS9fuGI();
+/**轻-通栏一(670*90)*/
+function fn_adsp_zsmLQgkJjQ3WEnMx1Q2p() {try {
+    // init
+    var elems = new Array();
+    var max_count = parseInt("1");
+    var count = 0;
+
+    // loop data
+    elems.push({"title":"1","res":"http://801.tianyaui.com/res/2013/0405/1365132264356.jpg","url":"http://807.tianya.cn/count?t=RdnNvI5u1sxAPpLBhHfG&backurl=http://page.tianya.cn/comagic"});
+    count ++;
+
+    // show
+    var rnd_idx = Math.floor(Math.random() * (elems.length));
+    var elm = elems[rnd_idx];
+
+    if ( elm.res.endsWith("jpg") || elm.res.endsWith("gif") || elm.res.endsWith("png") ) {
+      if ( elm.url == "" ) {
+          canvas.innerHTML = '<div class="qing_ad_hd"></div><IMG width="670" height="90" src="' + elm.res + '" border="0"><div class="qing_ad_bd"></div>';
+      } else {
+          canvas.innerHTML = '<div class="qing_ad_hd"></div><A href="' + elm.url + '" ' + a_target + '><IMG width="670" height="90" src="' + elm.res + '" border="0"></A><div class="qing_ad_bd"></div>';
+      }
+    } else if ( elm.res.endsWith("swf") ) {
+      if ( elm.url == "" ) {
+        canvas.innerHTML = '<div class="qing_ad_hd"></div><EMBED id="q_topbanner_685_90_1_swf" width="670" height="90" wmode="opaque" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" quality="High" src="' + elm.res + '"><div class="qing_ad_bd"></div>';
+      } else {
+        canvas.innerHTML = '<div class="qing_ad_hd"></div><div style="position: relative;width:670px;height:90px;background-color:#F5F9FA"><embed id="q_topbanner_685_90_1_swf" style="position:absolute;z-index:0;left:0;" src="' + elm.res + '"quality="high" width="670" height="90" pluginspage="http://www.macromedia.com/go/getflashplayer"type="application/x-shockwave-flash" wmode="opaque"><a href="' + elm.url + '" target="_blank" style="cursor:pointer"><div style="position:relative;filter:alpha(opacity=0);left:0;top:0;width:670px;height:90px;z-index:10;opacity:0;background-color:#000000"></div></a></div><div class="qing_ad_bd"></div>';
+      }
+    } else {
+      canvas.innerHTML ='<iframe width="670" height="90" hspace=0 vspace=0 frameborder=0 marginheight=0 marginwidth=0 scrolling=no src="' + elm.res + '"  name="1"></iframe>';
+    }
+
+} catch (e) {}}
+fn_adsp_zsmLQgkJjQ3WEnMx1Q2p();
