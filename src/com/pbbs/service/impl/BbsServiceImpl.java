@@ -14,6 +14,7 @@ import com.pbbs.service.BbsService;
  * Bbs业务服务实现类
  */
 @Service("BbsService")
+@Transactional
 public class BbsServiceImpl implements BbsService{
     
     
@@ -50,10 +51,9 @@ public class BbsServiceImpl implements BbsService{
 	public Page<Bbs> find(Pageable page) {
 		return dao.findAll(page);
 	}
+ 
 
 	public Page<Bbs> findBbsByUser(Bbs bbs, Pageable page) {
 		return dao.findBbsByUser(bbs, page);
 	}
- 
-    
 }

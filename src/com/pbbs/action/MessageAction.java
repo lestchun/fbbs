@@ -16,4 +16,9 @@ public class MessageAction extends BaseAction<Message> {
 		model=new Message();
 	}
 	
+	public String getSystemMessage(){
+		lists=service.searchMessage(null, getPages());
+		return SUCCESS;
+	}
+	
 }

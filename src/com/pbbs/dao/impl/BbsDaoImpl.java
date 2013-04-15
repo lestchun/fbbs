@@ -27,7 +27,6 @@ public class BbsDaoImpl extends BaseDao<Bbs> implements BbsDao {
 		param.add(modulId);
 		if(null!= veify){
 			hql+=" and b.veify=? ";
- 
 			param.add(veify+"");
 		}
 		hql+="  order by b.status asc ,b.updateTime desc , b.replayNum desc ";
@@ -46,9 +45,14 @@ public class BbsDaoImpl extends BaseDao<Bbs> implements BbsDao {
 				hql+=" and b.veify=?";
 				param.add(bbs.getVeify());
 			}
+			if(null!=bbs.getStatus()&&0!=bbs.getStatus()){
+				hql+=" and b.status = ?";
+				param.add(bbs.getStatus());
+			}
 		}
-		hql+=" order by b.updateTime desc ";
 		return findByHQL(hql,param, page);
 	}
+
+
 
 }

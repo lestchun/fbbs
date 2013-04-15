@@ -643,6 +643,12 @@
 						</div>
 						<div class="bd">
 							<ul class="user-list">
+<<<<<<< HEAD
+								<s:action name="listWelUser" executeResult="true">
+									<s:param name="page" value="1"></s:param>
+									<s:param name="size" value="10"></s:param>
+								</s:action>			
+=======
 								<li class="clearfix"><div class="headbox">
 										<div class="head50">
 											<a
@@ -705,6 +711,7 @@
 										<a href="http://bbs.tianya.cn/post-186-574338-1.shtml"
 											target="_blank">行走故土之：那些飘逝的符号</a>
 									</p></li>
+>>>>>>> branch 'master' of ssh://git@github.com/lestchun/fbbs.git
 								<!--  <li class="more"><a href="http://www.tianya.cn/bbs/more.jsp?mod=m14">更多&gt;&gt;</a></li>   -->
 							</ul>
 						</div>

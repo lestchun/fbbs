@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	</tr>
     	<tr>
     	<s:iterator  value="lists.content" id="bbs">
-    		<th>${bbs.name}</th>
+    		<th>${bbs.title}</th>
     		<th>${bbs.updateTime}</th>
     		<th>${bbs.viewNum}</th>
     		<th>${bbs.replayNum}</th>

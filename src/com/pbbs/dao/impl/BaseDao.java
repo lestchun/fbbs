@@ -1,6 +1,7 @@
 package com.pbbs.dao.impl;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -10,6 +11,7 @@ import javax.persistence.Query;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Order;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 
 import com.pbbs.tool.PageModel;
@@ -28,6 +30,24 @@ public class BaseDao<T> extends SimpleJpaRepository<T, Integer>{
 	
 	@SuppressWarnings("unchecked")
 	public Page<T> findByHQL(String hql,Map<String, Object> param , Pageable page){
+		if(null!=page&&null!=page.getSort()&&null!=page.getSort().iterator()){
+			Iterator<Order> lo=page.getSort() .iterator();
+			StringBuilder sb= new StringBuilder();
+			
+			while(lo.hasNext()){
+				Order o=lo.next();
+				sb.append(",");
+				sb.append(o.getProperty());
+				sb.append(" ");
+				sb.append(o.getDirection());
+			}
+			
+			if(sb.length()>0){
+				sb.deleteCharAt(0);
+				hql+=" order by "+sb.toString();
+			}
+		}
+		
 		Query query=em.createQuery(hql);
 		Query count=em.createQuery(hql.replaceFirst("^[^(]*(?=(from)|(FROM))", "select count(*) "));
 		
@@ -41,7 +61,7 @@ public class BaseDao<T> extends SimpleJpaRepository<T, Integer>{
 		
 		Page<T> pa= new PageModel<T>(
 				query.setFirstResult(page.getOffset()-page.getPageSize()).setMaxResults(page.getPageSize()).getResultList(),
-				(Integer)count.getSingleResult(),page.getPageNumber()+1
+				((Long)count.getSingleResult()).intValue(),page.getPageNumber()+1
 		);
 		return pa;
 	}
@@ -78,10 +98,35 @@ public class BaseDao<T> extends SimpleJpaRepository<T, Integer>{
 		}
 		return (List<T>) query.getResultList();
 	}
-			
+	
+	public static void main(String[] args) {
+		StringBuilder sb= new StringBuilder();
+		sb.append(".12");
+		sb.deleteCharAt(0);
+		System.out.println(sb);
+	}
 			
 	@SuppressWarnings("unchecked")
 	public Page<T> findByHQL(String hql,List<Object> param , Pageable page){
+		if(null!=page&&null!=page.getSort()&&null!=page.getSort().iterator()){
+			Iterator<Order> lo= page.getSort().iterator();
+			StringBuilder sb= new StringBuilder();
+			
+			while(lo.hasNext()){
+				Order o=lo.next();
+				sb.append(",");
+				sb.append(o.getProperty());
+				sb.append(" ");
+				sb.append(o.getDirection());
+			}
+			
+			
+			if(sb.length()>0){
+				sb.deleteCharAt(0);
+				hql+=" order by "+sb.toString();
+			}
+		}
+		
 		Query query=em.createQuery(hql);
 		
 		
@@ -102,9 +147,9 @@ public class BaseDao<T> extends SimpleJpaRepository<T, Integer>{
 		return pa;
 	}
 	
-	
-	
- 
+	public void delete(Class<?> clazz,Object id){
+		 Object obj=em.getReference(clazz, id);
+		 em.remove(obj);
+	}
 }
-
 

@@ -25,14 +25,7 @@ public class BbsAction extends BaseAction<Bbs> {
 		model= new Bbs();
 	}
 	
-	
-	
-	
-	
-	
 	public String goAddBBs(){
-		
-		
 		
 		return SUCCESS;
 	}
@@ -75,17 +68,57 @@ public class BbsAction extends BaseAction<Bbs> {
 	 * @return
 	 */
 	public String getHotBbs(){
-		lists=service.find(new PageRequest(1, 50, Direction.DESC, "replayNum"));
+		model= new Bbs();
+		model.setVeify("0");
+		lists=service.findBbsByUser(model,new PageRequest(page,size, Direction.DESC, "replayNum"));
 		return SUCCESS;
 	}
 	/**
-	 * 获得最新更新帖子
+	 * 最新更新
 	 * @return
 	 */
 	public String getLastUpdate(){
-		lists=service.find(new PageRequest(1, 50, Direction.DESC, "updateTime"));
+		model= new Bbs();
+		model.setVeify("0");
+		lists=service.findBbsByUser(model,new PageRequest(page, size, Direction.DESC, "updateTime"));
 		return SUCCESS;
 	}
+	
+	/**
+	 * 获得最新置顶帖子
+	 * @return
+	 */
+ 
+	public String getPostHead(){
+		model= new Bbs();
+		model.setVeify("0");
+		model.setStatus(1);
+		lists=service.findBbsByUser(model,new PageRequest(page, size, Direction.DESC, "updateTime"));
+		return SUCCESS;
+	}
+	/**
+	 * 获得推荐
+	 * @return
+	 */
+	public String getRecommend(){
+		model= new Bbs();
+		model.setVeify("0");
+		model.setStatus(2);
+		lists=service.findBbsByUser(model,new PageRequest(page, size, Direction.DESC, "updateTime"));
+		return SUCCESS;
+	}
+	/**
+	 * 加精
+	 * @return
+	 */
+	public String getDigest(){
+		model= new Bbs();
+		model.setVeify("0");
+		model.setStatus(3);
+		lists=service.findBbsByUser(model,new PageRequest(page, size, Direction.DESC, "updateTime"));
+		return SUCCESS;
+	}
+	
 	
 	private Integer mid;
 

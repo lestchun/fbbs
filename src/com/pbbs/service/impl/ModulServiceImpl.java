@@ -12,6 +12,7 @@ import com.pbbs.service.ModulService;
  * Modul业务服务实现类
  */
 @Service("ModulService")
+@Transactional
 public class ModulServiceImpl implements ModulService{
     
     

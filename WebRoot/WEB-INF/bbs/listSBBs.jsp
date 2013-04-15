@@ -4,16 +4,19 @@
 <head>
 </head>
 <body>
-	<a href="${mid}">发表帖子</a>
-	<ul style="width:200px">
-		<s:iterator  value="lists.content" id="bbs">
-		<li>
-			<a href="loadMass?id=${bbs.id}" >${bbs.title}..........详情</a>
-		</li>
-		</s:iterator>
-		<li>
-			<jsp:include page="../comment/page.jsp"></jsp:include>
-		</li>
+ 
+	 <ul class="bbs-list ${page==1?'curr':''}">
+	 	<s:iterator  value="lists.content" id="bbs" status="i">
+		<li><span><a  href="${bbs.id}">${bbs.modul.mass.name}</a></span>
+		<div class="title">
+				<a href="${bbs.id}"
+					target="_blank">${bbs.title}</a>
+			</div></li>
+			<s:if test="(#i.index+1)%4==0">
+		<li class="li-line"></li>
+			</s:if>
+	 	</s:iterator>
+ 
 	</ul>
 </body>
 </html>

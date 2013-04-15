@@ -42,6 +42,7 @@ public interface BbsService {
    * @return
    */
   public Page<Bbs> findBbsByModul(Integer modulId, Integer veify,Pageable page) ;
+ 
   /**
    * 列出所有帖子
    * @param page

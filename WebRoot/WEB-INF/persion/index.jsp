@@ -29,7 +29,6 @@
 				<tr>
 						<td>
 							<ul style="width:300px">
- 
 								<li><a href="index.jsp">首页</a></li>
 								<li><a href="javascript:void(0)" onclick="loadPage('jsp/info.jsp')">个人信息</a></li>
 								<li><a href="javascript:void(0)" onclick="loadPage('listmUserMass',1)">我的社团</a></li>
