@@ -8,7 +8,7 @@
 		<ul class="top_zone_box">
 		<s:iterator  value="lists.content" id="bbs" status="i">
 			<li class="top_zone_list">
-			<a href="${bbs.id}" target="_blank" title="${bbs.title}" class="title">${bbs.title}</a>
+			<a href="goAddBBs-${bbs.id}-1" target="_blank" title="${bbs.title}" class="title">${bbs.title}</a>
 			</li>
 			</s:iterator>
 		</ul>

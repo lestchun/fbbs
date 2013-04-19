@@ -19,4 +19,9 @@ public interface BbsDao extends JpaRepository<Bbs,Integer>{
 	 
 	 public Page<Bbs> findBbsByUser(Bbs bbs,Pageable page) ;
 	 
-}
+	 public void upBBs(Bbs bbs);
+	 
+	 public void addBBs(Bbs bbs);
+	 
+	 public Bbs findById(Integer id);
+ }

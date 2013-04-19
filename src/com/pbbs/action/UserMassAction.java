@@ -9,12 +9,15 @@ import org.springframework.stereotype.Controller;
 import com.pbbs.model.User;
 import com.pbbs.model.UserMass;
 import com.pbbs.service.UserMassService;
+import com.pbbs.service.UserService;
 import com.pbbs.tool.Result;
 @Controller("UserMassAction")
 @Scope("prototype")
 public class UserMassAction extends BaseAction<UserMass> {
 	private static final long serialVersionUID = 1L;
 	@Autowired UserMassService service;
+	@Autowired UserService uservice;
+	
 	public UserMassAction() {
 		model= new UserMass();
 	}
@@ -25,7 +28,7 @@ public class UserMassAction extends BaseAction<UserMass> {
 		}
 		result= new Result();
 		result.setResultCode(ERROR_CODE);
-		User user=getLoginUser();
+		User user=getLoginUser(uservice);
 		if(null==user){
 			result.setMsg("你没有登录");
 		}else{

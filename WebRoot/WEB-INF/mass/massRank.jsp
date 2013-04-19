@@ -6,7 +6,7 @@
 <body>
 		<s:iterator  value="lists.content" id="mass" status="i">
 		<li><span class="ranking-num ranking-num-${i.index+1}">&nbsp;</span><a
-			href="http://bbs.tianya.cn/list-news-1.shtml">${mass.name}</a><span
+			href="loadMass?id=${mass.id}">${mass.name}</a><span
 			class="trend-img trend-img-down">&nbsp;</span></li>
 		</s:iterator>
 </body>

@@ -3,7 +3,7 @@ package com.pbbs.tool;
 public class Result {
 	
 	private String msg;
-	
+	private Object data;
 	private String resultCode;
 	
 	public static final String ERROR_CODE="1001";
@@ -42,5 +42,11 @@ public class Result {
 	 */
 	public void setTotal(Long total) {
 		this.total = total;
+	}
+	public Object getData() {
+		return data;
+	}
+	public void setData(Object data) {
+		this.data = data;
 	}
 }

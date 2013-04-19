@@ -6,10 +6,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.pbbs.model.User;
+import com.pbbs.vo.UserVO;
 
 /**
  * 用户业务接口
  */
+
 public interface UserService {
     
     /**
@@ -17,6 +19,7 @@ public interface UserService {
      * @param User
      */
   public  void saveUser(User model);
+  public void av(User u);
   /**
    * 批量保存用户
    * @param model
@@ -60,6 +63,14 @@ public interface UserService {
    * @return
    */
   public Page<User> listWelUser(Pageable page) ;
+  /**
+   * 找出受欢迎的用户
+   * @param type  类别 0整站  1 社团  2 部门
+   * @param id			id
+   * @param page
+   * @return
+   */
+  public Page<UserVO> listWelUserVO(int type,Integer id,Pageable page) ;
  
   
   public User findUserByUserNameAndUserName(User user);

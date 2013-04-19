@@ -45,5 +45,15 @@ public  class UserMassDaoImpl extends BaseDao<UserMass> implements UserMassDao {
 		}
 		return findByHQL(hql, param, page);
 	}
+
+	public List<UserMass> findByUserIdAndModul(Integer userid, Integer modulId) {
+		 return findList("from UserMass um where um.user.id = ?  and um.modul.id =? " ,  new Object[]{userid,modulId});
+	}
+
+	public void saveUserMass(UserMass um) {
+		 em.getTransaction().begin();
+		 em.getTransaction().commit();
+		
+	}
  
 }

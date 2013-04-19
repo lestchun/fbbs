@@ -17,5 +17,5 @@ public interface MassDao extends JpaRepository<Mass,Integer>{
 	 
 	 public Page<Mass> listMass(Integer userId,Integer vify, Pageable page);
 	 
-	 
+	 public void saveMass(Mass m);
 }

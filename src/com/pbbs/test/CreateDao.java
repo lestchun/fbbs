@@ -10,6 +10,7 @@ import java.util.Set;
 
 import javax.persistence.Entity;
 
+import org.aopalliance.intercept.MethodInterceptor;
 import org.scannotation.AnnotationDB;
 import org.scannotation.ClasspathUrlFinder;
 
@@ -20,7 +21,6 @@ import freemarker.template.TemplateException;
 
 public class CreateDao {
 	public static void main(String[] args) {
-	 
 		AnnotationDB db;
 		try {
 			db = new AnnotationDB();

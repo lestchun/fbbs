@@ -16,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.apache.struts2.json.annotations.JSON;
+
 /**
  * Modul entity. @author MyEclipse Persistence Tools
  */
@@ -39,6 +41,12 @@ public class Modul implements java.io.Serializable {
 	public Modul() {
 	}
  
+
+	public Modul(Integer id) {
+		super();
+		this.id = id;
+	}
+
 
 	public Modul(Integer id, Mass mass, User user, Visiablely visiablely,
 			String name, Set<UserMass> userMasses, Set<Bbs> bbses) {
@@ -64,7 +72,7 @@ public class Modul implements java.io.Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
+	@JSON(serialize=false)
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "mid")
 	public Mass getMass() {
@@ -74,7 +82,7 @@ public class Modul implements java.io.Serializable {
 	public void setMass(Mass mass) {
 		this.mass = mass;
 	}
-
+	@JSON(serialize=false)
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "uid")
 	public User getUser() {
@@ -84,7 +92,7 @@ public class Modul implements java.io.Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
+	@JSON(serialize=false)
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "pid")
 	public Visiablely getVisiablely() {
@@ -103,7 +111,7 @@ public class Modul implements java.io.Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	@JSON(serialize=false)
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "modul")
 	public Set<UserMass> getUserMasses() {
 		return this.userMasses;
@@ -112,7 +120,7 @@ public class Modul implements java.io.Serializable {
 	public void setUserMasses(Set<UserMass> userMasses) {
 		this.userMasses = userMasses;
 	}
-
+	@JSON(serialize=false)
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "modul")
 	public Set<Bbs> getBbses() {
 		return this.bbses;

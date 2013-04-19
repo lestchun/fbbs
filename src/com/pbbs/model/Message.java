@@ -1,6 +1,8 @@
 package com.pbbs.model;
 
 import java.sql.Timestamp;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Message entity. @author MyEclipse Persistence Tools
@@ -22,7 +26,7 @@ public class Message implements java.io.Serializable {
 
 	private Integer id;
 	private User user;
-	private Timestamp sendTime;
+	private Date sendTime;
 	private String msg;
 	private String revicesUser;
 
@@ -70,11 +74,12 @@ public class Message implements java.io.Serializable {
 	}
 
 	@Column(name = "sendTime", length = 0)
-	public Timestamp getSendTime() {
+	@Temporal(TemporalType.TIME)
+	public Date getSendTime() {
 		return this.sendTime;
 	}
 
-	public void setSendTime(Timestamp sendTime) {
+	public void setSendTime(Date sendTime) {
 		this.sendTime = sendTime;
 	}
 

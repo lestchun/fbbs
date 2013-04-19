@@ -15,7 +15,11 @@ public interface UserMassService {
      * 保存UserMass
      * @param UserMass
      */
-  public  void saveUserMass(UserMass model);
+  public  int saveUserMass(UserMass model);
+  /**
+   * 保存UserMass
+   * @param UserMass
+   */
     
     /**
      * 根据id查找UserMass

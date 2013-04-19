@@ -25,5 +25,11 @@ public class MessageDaoImpl extends BaseDao<Message> implements MessageDao {
 		hql+=" order by m.sendTime desc ";
 		return findByHQL(hql, page);
 	}
+
+	public void saveMessage(Message mess) {
+		em.getTransaction().begin();
+		em.persist(mess);
+		em.getTransaction().commit();
+	}
 	
 }

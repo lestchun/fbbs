@@ -4,12 +4,17 @@
 <head>
 </head>
 <body>
-	<ul style="width:200px;margin-left: 0px">
+	<ul class="text-list">
 		<s:iterator  value="lists.content" id="mess">
+		<li><a
+			href="${mess.id}"
+			class="title" target="_blank" title="${mess.msg}">${mess.msg}</a></li>
 		<li>
-			${mess.msg}
-		</li>
 		</s:iterator>
+		<s:if test="page<lists.totalPages">
+			<li class="more"><a
+				href="http://bbs.tianya.cn/list-lookout-1.shtml">更多&gt;&gt;</a></li>
+		</s:if>
 	</ul>
 </body>
 </html>

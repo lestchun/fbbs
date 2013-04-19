@@ -1,0 +1,52 @@
+/**矩形二(140*180)*/
+function fn_adsp_0kzQqUURbD79HQqUEM0I() {try {
+      var canvas = document.getElementById('adsp_banner_140_280_2');
+      //_nodispaly="true"
+      if (jQuery("#adsp_banner_140_280_2").css("display") == "none" && jQuery("#adsp_banner_140_280_2").attr("_nodispaly") != "true") {
+        jQuery("#adsp_banner_140_280_2").css("display", "block");
+      }
+      var a_target='';
+      var window_target='';
+      a_target=' target="_blank" ';
+        canvas.innerHTML = '<div class="qing_ad_hd"></div><A href="http://807.tianya.cn/count?t=zNjoXprJf6Kr7OH3o8P0&backurl=http://travel.tianya.cn/hotel/hk_mac.html" ' + a_target + '><IMG width="140" height="180" src="http://801.tianyaui.com/res/2013/0304/1362364453241.jpg" border="0"></A><div class="qing_ad_bd"></div>';
+} catch (e) {}}
+fn_adsp_0kzQqUURbD79HQqUEM0I();
+/**横幅一(370*90)*/
+function fn_adsp_24hj6vfKDcDwJNnij2J5() {try {
+      var canvas = document.getElementById('adsp_banner_370_90');
+      //_nodispaly="true"
+      if (jQuery("#adsp_banner_370_90").css("display") == "none" && jQuery("#adsp_banner_370_90").attr("_nodispaly") != "true") {
+        jQuery("#adsp_banner_370_90").css("display", "block");
+      }
+      var a_target='';
+      var window_target='';
+      a_target=' target="_blank" ';
+        canvas.innerHTML = '<div class="qing_ad_hd"></div><A href="http://807.tianya.cn/count?t=iesb6c0QrBDzCR5J6nRF&backurl=http://huochepiao.tianya.cn/" ' + a_target + '><IMG width="370" height="90" src="http://801.tianyaui.com/res/2013/0227/1361954514817.jpg" border="0"></A><div class="qing_ad_bd"></div>';
+} catch (e) {}}
+fn_adsp_24hj6vfKDcDwJNnij2J5();
+/**通栏一(590*90)*/
+function fn_adsp_qosjjVTHJV2EmE1VTP41() {try {
+      var canvas = document.getElementById('adsp_banner_590_90');
+      //_nodispaly="true"
+      if (jQuery("#adsp_banner_590_90").css("display") == "none" && jQuery("#adsp_banner_590_90").attr("_nodispaly") != "true") {
+        jQuery("#adsp_banner_590_90").css("display", "block");
+      }
+      var a_target='';
+      var window_target='';
+      a_target=' target="_blank" ';
+        canvas.innerHTML = '<div class="qing_ad_hd"></div><A href="http://807.tianya.cn/count?t=HLqRykOL2DG9eLJk0AJT&backurl=http://bbs.tianya.cn/post-903-2146-1.shtml" ' + a_target + '><IMG width="590" height="90" src="http://801.tianyaui.com/res/2013/0411/1365665944580.jpg" border="0"></A><div class="qing_ad_bd"></div>';
+} catch (e) {}}
+fn_adsp_qosjjVTHJV2EmE1VTP41();
+/**矩形一(140*280)*/
+function fn_adsp_sicM9EofMwoEKnn7zpBv() {try {
+      var canvas = document.getElementById('adsp_banner_140_280_1');
+      //_nodispaly="true"
+      if (jQuery("#adsp_banner_140_280_1").css("display") == "none" && jQuery("#adsp_banner_140_280_1").attr("_nodispaly") != "true") {
+        jQuery("#adsp_banner_140_280_1").css("display", "block");
+      }
+      var a_target='';
+      var window_target='';
+      a_target=' target="_blank" ';
+        canvas.innerHTML = '<div class="qing_ad_hd"></div><div style="position: relative;width:140px;height:280px;background-color:#F5F9FA"><embed id="adsp_banner_140_280_1_swf" style="position:absolute;z-index:0;left:0;" src="http://801.tianyaui.com/res/2013/0412/1365751393162.swf"quality="high" width="140" height="280" pluginspage="http://www.macromedia.com/go/getflashplayer"type="application/x-shockwave-flash" wmode="opaque"><a href="http://807.tianya.cn/count?t=bLAK7wfSLQRSOmMtlcuV&backurl=http://www.shishangqqiyi.com/Union/flow_zz.asp?lnm=116&lid=598&m_id=&gourl=" target="_blank" style="cursor:pointer"><div style="position:relative;filter:alpha(opacity=0);left:0;top:0;width:140px;height:280px;z-index:10;opacity:0;background-color:#000000"></div></a></div><div class="qing_ad_bd"></div>';
+} catch (e) {}}
+fn_adsp_sicM9EofMwoEKnn7zpBv();

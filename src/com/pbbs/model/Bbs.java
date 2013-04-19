@@ -1,6 +1,10 @@
 package com.pbbs.model;
 
 import java.sql.Timestamp;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,7 +12,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 /**
  * Bbs entity. @author MyEclipse Persistence Tools
@@ -27,12 +35,13 @@ public class Bbs implements java.io.Serializable {
 	private String content;
 	private Integer viewNum;
 	private Integer replayNum;
-	private Timestamp postTime;
-	private Timestamp updateTime;
+	private Date postTime;
+	private Date updateTime;
 	private String veify;
 	private String veifyadvice;
 	private Integer status;
 	private User user;
+	private Set<Reply> replys;
 	// Constructors
 
 	/** default constructor */
@@ -96,7 +105,7 @@ public class Bbs implements java.io.Serializable {
 		this.title = title;
 	}
 
-	@Column(name = "content", length = 65535)
+	@Column(name = "content")
 	public String getContent() {
 		return this.content;
 	}
@@ -115,20 +124,22 @@ public class Bbs implements java.io.Serializable {
 	}
 
 	@Column(name = "postTime", length = 0)
-	public Timestamp getPostTime() {
+	@Temporal(TemporalType.TIME)
+	public Date getPostTime() {
 		return this.postTime;
 	}
 
-	public void setPostTime(Timestamp postTime) {
+	public void setPostTime(Date postTime) {
 		this.postTime = postTime;
 	}
 
 	@Column(name = "updateTime", length = 0)
-	public Timestamp getUpdateTime() {
+	@Temporal(TemporalType.TIME)
+	public Date getUpdateTime() {
 		return this.updateTime;
 	}
 
-	public void setUpdateTime(Timestamp updateTime) {
+	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
 
@@ -184,5 +195,17 @@ public class Bbs implements java.io.Serializable {
 	public void setReplayNum(Integer replayNum) {
 		this.replayNum = replayNum;
 	}
+	@Transient
+	public String getSubCon(){
+		return null==content?"":(content.length()>60?content.substring(0, 60):content);
+	}
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "bbs")
+	public Set<Reply> getReplys() {
+		return replys;
+	}
 
+	public void setReplys(Set<Reply> replys) {
+		this.replys = replys;
+	}
 }

@@ -1,5 +1,6 @@
 /**轻-疯狂广告(600*350)*/
 function fn_adsp_lAWnWZhA30NpNC70WPY3() {try {
+	return ;
     var second = "8000";
     if (!(second == "null" || second == "") && second != "0") {
         second = parseInt(second);
@@ -11,7 +12,7 @@ function fn_adsp_lAWnWZhA30NpNC70WPY3() {try {
       var div = document.getElementById("adsp_rp_crazy_div");
       div.style.display = v;
       if (v == 'block') {
-        setTimeout(function(){fn_adsp_lAWnWZhA30NpNC70WPY3.setCenterFlash("none");fn_adsp_lAWnWZhA30NpNC70WPY3.setleftFlash("block");}, second);
+        //setTimeout(function(){fn_adsp_lAWnWZhA30NpNC70WPY3.setCenterFlash("none");fn_adsp_lAWnWZhA30NpNC70WPY3.setleftFlash("block");}, second);
       }
     }
 

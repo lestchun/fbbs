@@ -149,7 +149,9 @@ public class BaseDao<T> extends SimpleJpaRepository<T, Integer>{
 	
 	public void delete(Class<?> clazz,Object id){
 		 Object obj=em.getReference(clazz, id);
+		 em.getTransaction().begin();
 		 em.remove(obj);
+		 em.getTransaction().commit();
 	}
 }
 

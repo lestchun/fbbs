@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManagerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
@@ -14,6 +15,7 @@ import com.pbbs.dao.BbsDao;
 import com.pbbs.model.Bbs;
 
 @Repository
+@Scope("prototype")
 public class BbsDaoImpl extends BaseDao<Bbs> implements BbsDao {
 	
 	@Autowired
@@ -32,7 +34,12 @@ public class BbsDaoImpl extends BaseDao<Bbs> implements BbsDao {
 		hql+="  order by b.status asc ,b.updateTime desc , b.replayNum desc ";
 		return findByHQL(hql, param,page);
 	}
-
+	
+	
+	/**
+	 * bbs.id  1 显示社团帖子  2.显示部门帖子
+	 * bbs.viewNum  对应id
+	 */
 	public Page<Bbs> findBbsByUser(Bbs bbs, Pageable page) {
 		String hql=" from Bbs b where 1=1";
 		List<Object>param= new ArrayList<Object>();
@@ -41,16 +48,47 @@ public class BbsDaoImpl extends BaseDao<Bbs> implements BbsDao {
 				hql+=" and b.user.id=?";
 				param.add(bbs.getUser().getId());
 			}
+			
 			if(null!=bbs.getVeify()){
 				hql+=" and b.veify=?";
 				param.add(bbs.getVeify());
 			}
+			
 			if(null!=bbs.getStatus()&&0!=bbs.getStatus()){
 				hql+=" and b.status = ?";
 				param.add(bbs.getStatus());
 			}
+			
+			if(null!=bbs.getId()){
+				if(1==bbs.getId()){
+					hql+=" and b.modul.mass.id=?";
+					param.add(bbs.getViewNum());
+				}else if(2==bbs.getId()){
+					hql+=" and b.modul.id=?";
+					param.add(bbs.getViewNum());
+				}
+			}
+			
 		}
 		return findByHQL(hql,param, page);
+	}
+
+	public synchronized void upBBs (Bbs bbs) {
+		em.getTransaction().begin();
+		em.clear();
+		em.merge(bbs);
+		em.getTransaction().commit();
+	}
+
+	public void addBBs(Bbs bbs) {
+		em.getTransaction().begin();
+		em.persist(bbs);
+		em.getTransaction().commit();
+	}
+
+	public Bbs findById(Integer id) {
+		em.clear();
+		return em.getReference(Bbs.class,id	);
 	}
 
 

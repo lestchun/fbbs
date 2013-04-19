@@ -3,6 +3,7 @@ package com.pbbs.model;
 import static javax.persistence.GenerationType.IDENTITY;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,6 +15,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 /**
  * User entity. @author MyEclipse Persistence Tools
@@ -32,18 +36,23 @@ public class User implements java.io.Serializable {
 	private String grade;
 	private String type;
 	private String status;
-	private Timestamp startTime;
-	private Timestamp regiestTime;
+	private Date startTime;
+	private Date regiestTime;
 	private Set<UserMass> userMasses = new HashSet<UserMass>(0);
 	private Set<Message> messages = new HashSet<Message>(0);
 	private Set<Modul> moduls = new HashSet<Modul>(0);
 	private Set<Mass> masses = new HashSet<Mass>(0);
 	private Set<Bbs> bbses = new HashSet<Bbs>(0);
-
+	private Long reply;
 	// Constructors
 
 	/** default constructor */
 	public User() {
+	}
+
+	public User(Integer id) {
+		super();
+		this.id = id;
 	}
 
 	/** full constructor */
@@ -63,6 +72,17 @@ public class User implements java.io.Serializable {
 		this.messages = messages;
 		this.moduls = moduls;
 		this.masses = masses;
+	}
+
+	public User(String username, String nickname, String password,
+			String grade, String type, String status) {
+		super();
+		this.username = username;
+		this.nickname = nickname;
+		this.password = password;
+		this.grade = grade;
+		this.type = type;
+		this.status = status;
 	}
 
 	// Property accessors
@@ -131,21 +151,23 @@ public class User implements java.io.Serializable {
 		this.status = status;
 	}
 
-	@Column(name = "startTime", length = 0)
-	public Timestamp getStartTime() {
-		return this.startTime;
-	}
 
-	public void setStartTime(Timestamp startTime) {
-		this.startTime = startTime;
-	}
+	
+//	public Timestamp getStartTime() {
+//		return this.startTime;
+//	}
+//
+//	public void setStartTime(Timestamp startTime) {
+//		this.startTime = startTime;
+//	}
 
 	@Column(name = "regiestTime", length = 0)
-	public Timestamp getRegiestTime() {
+	@Temporal(TemporalType.TIME)
+	public Date getRegiestTime() {
 		return this.regiestTime;
 	}
 
-	public void setRegiestTime(Timestamp regiestTime) {
+	public void setRegiestTime(Date regiestTime) {
 		this.regiestTime = regiestTime;
 	}
 
@@ -191,6 +213,23 @@ public class User implements java.io.Serializable {
 
 	public void setBbses(Set<Bbs> bbses) {
 		this.bbses = bbses;
+	}
+	@Transient
+	public Long getReply() {
+		return reply;
+	}
+
+	public void setReply(Long reply) {
+		this.reply = reply;
+	}
+	@Column(name = "startTime", length = 0)
+	@Temporal(TemporalType.TIME) 
+	public Date getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(Date startTime) {
+		this.startTime = startTime;
 	}
 
 }

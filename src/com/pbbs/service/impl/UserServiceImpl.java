@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pbbs.dao.MessageDao;
@@ -17,12 +18,14 @@ import com.pbbs.model.Message;
 import com.pbbs.model.User;
 import com.pbbs.service.UserService;
 import com.pbbs.tool.DateUtil;
+import com.pbbs.vo.UserVO;
 
 /**
  * User业务服务实现类
  */
 @Service("UserService")
 @Transactional
+@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = false)
 public class UserServiceImpl implements UserService{
     
     
@@ -42,8 +45,8 @@ public class UserServiceImpl implements UserService{
 		m.setMsg("用户"+model.getUsername()+"在"+DateUtil.formatter(new Date())+"注册成功");
 		m.setSendTime(sys);
 		
-		dao.save(model);
-		messDao.save(m);
+		dao.av(model);
+		messDao.saveMessage(m);
 		
         
     }
@@ -80,6 +83,12 @@ public class UserServiceImpl implements UserService{
     }
 	public User findUserByUserNameAndUserName(User user) {
 		return dao.findByUserIdAndUsername(user);
+	}
+	public Page<UserVO> listWelUserVO(int type,Integer id,Pageable page) {
+		return dao.listWelUserVO(type,id,page);
+	}
+	public void av(User u) {
+		dao.av(u);
 	}
     
     

@@ -1,0 +1,19 @@
+@charset "utf-8";
+.cms_head,.cms_foot{display:none;}
+.cms_body{width:180px;padding:0px 0px;}
+.house2forum .hd{height:22px; line-height:22px; font-size:14px; padding:0px 0px;}
+.house2forum .hd h2{line-height: 22px;margin:0px 0px;}
+.house2forum .bd{padding:0px 0px;}
+.house2forum .tui-tabsection .hd{padding: 0px 0px 0px 10px;*padding: 0px 0px 0px 7px; _padding: 0px 0px 0px 7px; border:none;border-bottom:1px solid #E7E7E7;height:27px; line-height:26px;}
+.house2forum .tui-tabsection .static-tab-column-bd{padding:0px 0px;border:none;}
+.house2forum .tui-tabsection .static-tab-column-bd .bd{border:none;padding:6px 0px 2px 0px;}
+.house2forum .tui-tabsection .hd{color:#000000;}
+.house2forum .tui-tabsection .hd ul li a{text-decoration:none;}
+.house2forum .tui-tabsection .hd .tabon{font-size:12px;font-weight:normal;color:000000; background:#E7E7E7;padding:0px 1px 0px 3px; _padding:0px 1px 1px 3px; border:none;}
+.house2forum .tui-tabsection .hd .taboff{font-size:12px;font-weight:normal;color:000000; background:#FFFFFF;padding:0px 1px 0px 0px;border:none;}
+.house2forum .tui-pic-list ul li h3{margin:0px auto 6px;}
+.tui-190_750 .tui-right{display:none;}
+.tui-190_750 .tui-left{width:180px;}
+.custom_css1121155412 .hd{background:none; background-color : #FFFFFF ;background-image : none ;background-repeat : no-repeat ;border-color : #FFFFFF ;border-width : 0px ;border-left-style : none ;border-top-style : none ;border-bottom-style : none ;border-right-style : none ;}
+.custom_css1121155412 .hd h2{color : #000000 ;font-family : 寰蒋闆呴粦 ;font-size : 14px ;font-weight : bold ;}
+.custom_css1121155412 .bd{border-color : #DEDEDE ;border-width : 1px ;border-left-style : none ;border-top-style : none ;border-bottom-style : solid ;border-right-style : none ;}

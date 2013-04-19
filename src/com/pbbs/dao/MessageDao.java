@@ -14,5 +14,6 @@ import com.pbbs.model.Message;
  @NoRepositoryBean
 public interface MessageDao extends JpaRepository<Message,Integer>{
 	 public Page<Message> search(Message message,Pageable page);
+	 public void saveMessage(Message mess);
 /*${start}${content}${end}*/
 }

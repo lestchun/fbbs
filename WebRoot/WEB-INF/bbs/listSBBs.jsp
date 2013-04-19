@@ -9,7 +9,7 @@
 	 	<s:iterator  value="lists.content" id="bbs" status="i">
 		<li><span><a  href="${bbs.id}">${bbs.modul.mass.name}</a></span>
 		<div class="title">
-				<a href="${bbs.id}"
+				<a href="goAddBBs-${bbs.id}-1"
 					target="_blank">${bbs.title}</a>
 			</div></li>
 			<s:if test="(#i.index+1)%4==0">

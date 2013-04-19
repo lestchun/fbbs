@@ -1,0 +1,22 @@
+document.writeln(
+		['<style type="text/css">', 
+		 "<!--", 
+		 ".foot {border-top:4px solid #eee;padding-top:6px;margin-top:10px}", 
+		 ".foot p {text-align:center;margin:3px;font-size:12px;color:#555;font-family: Arial}", 
+		 ".foot p a:link,.foot p a:visited ,.foot p a:hover {color:#2965b1;font-size:12px;margin:0px 4px}", 
+		 "-->",
+		 "</style>",
+		 "<div class=foot>",
+		 "<p>", 
+		 '<a href="#" target="_blank">关于吉首大学社团管理</a> | ', 
+		 '<a href="#" target="_blank">广告服务</a> | ', 
+		 '<a href="#" target="_blank">开放平台</a> | ', 
+		 '<a href="#" target="_blank">吉首大学社团客服</a> | ', 
+		 '<a href="#" target="_blank">隐私和版权</a> | ', 
+		 '<a href="#" target="_blank">联系我们</a> | ', 
+		 '<a href="#" target="_blank">加入吉首大学社团</a> | ', 
+		 '<a href="#" target="_blank">手机版</a> | ', 
+		 '<a href="#" target="_blank">举报投诉</a>', 
+		 "</p>", "<p> &copy 2013 - " + ((new Date()).getYear() < 1000 ? ((new Date()).getYear() + 1900) : ((new Date()).getYear())) + "吉首大学社团</p>", 
+		 "</div>"].join(""));
+ 

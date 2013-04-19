@@ -34,5 +34,13 @@ public class MassDaoImpl extends BaseDao<Mass> implements MassDao {
 		} 
 		return findAll(page);
 	}
+
+	public void saveMass(Mass m) {
+		em.getTransaction().begin();
+		em.clear();
+		em.merge(m);
+		em.getTransaction().commit();
+		
+	}
 	
 }

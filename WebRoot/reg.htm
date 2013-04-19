@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+	<title>吉首大学社团管理用户注册</title>
+	<link rel="shortcut icon" href="http://static.tianyaui.com/favicon.ico" type="image/vnd.microsoft.icon"/>
+	<link href="mass_files/tianyaregister.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" type="text/css" href="mass_files/TY.css"/>
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="mass_files/TY.js"></script>
+    <script src="mass_files/h.js" async="" type="text/javascript"></script>
+	<script type="text/javascript" charset="utf-8" src="mass_files/register.js"></script>
+</head>
+
+<body>
+
+	<div class="p_mian">
+
+		<div class="p_mian_top">
+			<div class="p_mian_topl">
+				<a href="http://www.tianya.cn/" target="_blank"><img
+					src="mass_files/logo.jpg" border="0"/></a>
+			</div>
+
+
+			<div class="p_mian_topr">
+				<a href="http://passport.tianya.cn/help/index.jsp" target="_blank">注册帮助</a>
+				| <a
+					href="http://service.tianya.cn/question/suggestions.do?typeid=7"
+					target="_blank">反馈意见</a>
+			</div>
+
+
+		</div>
+		<form method="post" id="vForm" name="vForm">
+			<input name="sourceURL" value="http://bbs.tianya.cn/post-no20-392188-1.shtml" type="hidden"/>
+			<input name="fowardURL" value="http://passport.tianya.cn:80/register/step2.jsp" type="hidden"/> 
+			<input name="PreSourceURL" value="" type="hidden"/> 
+			<input name="ForwardFlag" value="" type="hidden"/> 
+			<input name="OperType" value="" type="hidden"/> 
+			<input name="state" value="0" type="hidden"/>
+
+									<div class="p_mian_box">
+
+										<div class="box_t">
+											<!---->
+
+											<div class="box_a">
+												<img style="margin: 7px 0 0 80px" src="mass_files/title1.gif"/>
+											</div>
+
+											<div class="clear"></div>
+											<ul>
+												<li>
+													<h1>用户名：</h1> <span><input id="userName"
+														name="userName" maxlength="16" flag="1"
+														alt="用户名:无内容/长度{1-16}/有全角/有空格/数字字母中文下划线/排重/tips{&lt;b&gt;长度不超过8个中文，注册成功后，用户名不允许修改&lt;/b&gt;}/msgArea{userNameMsg}"
+														type="text"/></span>
+
+													<div class="box_div_wrong" id="userNameMsg"
+														style="display: block;">
+														<img src="mass_files/wrong.gif" style="margin-right: 5px;"/>请输入用户名
+													</div> <span class="clear"></span>
+
+												</li>
+												<li>
+													<h1>昵称：</h1> <span><input 
+														name="userName" maxlength="16" flag="1"
+														alt="用户名:无内容/长度{1-16}/有全角/有空格/数字字母中文下划线/排重/tips{&lt;b&gt;长度不超过8个中文，注册成功后，用户名不允许修改&lt;/b&gt;}/msgArea{userNameMsg}"
+														type="text"/></span>
+
+													<div class="box_div_wrong" id="userNameMsg"
+														style="display: block;">
+														<img src="mass_files/wrong.gif" style="margin-right: 5px;"/>请输入用户名
+													</div> <span class="clear"></span>
+
+												</li>
+												<li>
+													<h1>密码：</h1> <span><input id="password"
+														name="password"
+														alt="密码:无内容/用户密码/minlength{6}/简单密码/tips{密码区分大小写}/msgArea{passwordMsg}"
+														type="password" /></span>
+													<div class="box_div_wrong" id="passwordMsg"
+														style="display: block;">
+														<img src="mass_files/wrong.gif" style="margin-right: 5px;"/>请输入密码
+													</div> <span class="clear"></span>
+												</li>
+												<li>
+													<h1>确认密码：</h1> <span>
+													<input id="password2"
+														name="password2"
+														alt="确认密码:无内容/用户密码/minlength{6}/相同{password}/tips{请再次输入密码}/msgArea{passwordMsg2}"
+														type="password" /></span>
+													<div class="box_div_wrong" id="passwordMsg2"
+														style="display: block;">
+														<img src="mass_files/wrong.gif" style="margin-right: 5px;"/>请输入确认密码
+													</div> <span class="clear"></span>
+												</li>
+												<li>
+													<h1>您常用的邮箱：</h1>
+													<div style="width: 222px">
+														<input id="email" flag="1" name="email"
+															alt="邮箱地址:msgArea{emailMsg}/无内容/有全角/有空格/有大写/有中文/邮箱地址/邮箱注册排重/tips{输入您的常用有效邮箱}"
+															type="text"/>
+															<!--  <p style="margin: 0pt; padding: 5px 0 0 0; font-size: 12px; color: rgb(85, 85, 85); float: left; width: 200px;">没有邮箱？请注册<a href="http://passport.tianya.cn:80/tymail/register.jsp?keepThis=true&TB_iframe=true&height=450&width=650" class="thickbox" style="color:#2965B1" title="注册天涯邮箱">天涯邮箱</a></p>-->
+													</div>
+
+													<div id="emailMsg" style="display: block;"
+														class="box_div_wrong">
+														<img src="mass_files/wrong.gif" style="margin-right: 5px;"/>请输入邮箱地址
+													</div> <span class="clear"></span>
+												</li>
+												<li>
+													<div style="width: 365px;">
+														<h1 style="margin-top: 10px;">验证码：</h1>
+														<span><input style="width: 45px; margin-top: 10px;"
+															id="vcode" name="vcode" maxlength="4"
+															alt="验证码:无内容/有空格/tips{验证码不区分大小写}/msgArea{vcodeMsg}"
+															type="text"/> <a href="javascript:oCode();"><img
+																	id="vcodeImg"
+																	style="margin-bottom: -20px; _margin-bottom: -5px; width: 120px; height: 50px;"
+																	src="mass_files/ImageCodeService.jpeg"/></a>&nbsp;&nbsp;<a
+																href="javascript:oCode();"
+																style="font-size: 12px; color: #2965B1">换一张</a></span>
+													</div>
+
+													<div class="box_div_right" id="vcodeMsg"
+														style="width: 235px; display: block;">验证码不区分大小写</div>
+
+												</li>
+											</ul>
+											<div class="clear"></div>
+											<div class="box_b">
+												<div style="width: 500px;">
+													<div
+														style="width: 300px; float: left; margin-left: 38px; _margin-left: 19px;">
+														<label> <input id="agree" name="agree"
+															value="checkbox" checked="checked"
+															alt="请确认您已阅读并同意《天涯社区用户注册协议》:条款/msgArea{agreeMsg}"
+															type="checkbox"/></label> 我已经阅读并同意 <a
+															href="http://service.tianya.cn/guize/regist.do"
+															target="_blank">《天涯社区用户注册协议》</a>
+
+													</div>
+													<div
+														style="width: 100px; height: 23px; float: left; display: none"
+														id="agreeMsg"></div>
+													<div
+														style="width: 350px; float: left; margin-left: 38px; _margin-left: 19px; margin-top: 10px;">
+														<input style="margin-right: 8px;" name="rmflag"
+															id="rmflag" value="1" checked="checked" type="checkbox"/>注册完后，下次自动登录。请勿在公用电脑上勾选此项！
+														
+													</div>
+												</div>
+
+												<div class="box_button"
+													style="width: 300px; margin-top: 0px; margin-left: 45px">
+													<label> <input style="margin-top: 15px"
+														class="tianya_btn_zhuc" name="cmdSubmit" value="立即注册"
+														type="submit"/></label>
+												</div>
+											</div>
+
+
+										</div>
+									</div>
+		</form>
+		<!-- 底部js -->
+		<div class="register_footer"
+			style="width: 950px; background-color: #FFFFFF">
+			<script type="text/javascript" charset="GBK"
+				src="mass_files/tianya_footer1.js"></script>
+			<style type="text/css">
+<!--
+.foot {
+	border-top: 4px solid #eee;
+	padding-top: 6px;
+	margin-top: 10px
+}
+
+.foot p {
+	text-align: center;
+	margin: 3px;
+	font-size: 12px;
+	color: #555;
+	font-family: Arial
+}
+
+.foot p a:link,.foot p a:visited,.foot p a:hover {
+	color: #2965b1;
+	font-size: 12px;
+	margin: 0px 4px
+}
+-->
+</style>
+			<div class="foot">
+				
+			</div>
+
+		</div>
+	</div>
+	<script type="text/javascript">
+		function oCode() {
+			document.getElementById('vcodeImg').src = 'http://imgcode.tianya.cn/services/ImageCodeService?_r='
+					+ new Date().getTime();
+		}
+		function suggest(name) {
+			document.getElementById('userName').value = name;
+			jQuery('#userName').removeClass(jQuery('#userName').attr('class'));
+			jQuery('#userNameMsg').addClass('box_div_right2');
+			jQuery('#userNameMsg')
+					.html(
+							'<img src="image/icon_ok.gif" style="margin-right:5px;" />');
+			jQuery('#userNameMsg').show();
+		}
+		jQuery(document).ready(function() {
+			var conf = (typeof vconf == 'undefined') ? {} : vconf;
+			var v = new Validator(conf);
+			v.init('vForm');
+		});
+	</script>
+	<script charset="UTF-8" type="text/javascript"
+		src="mass_files/stat_20080313.js"></script>
+</body>
+</html>

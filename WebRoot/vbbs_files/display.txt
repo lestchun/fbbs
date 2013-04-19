@@ -1,0 +1,562 @@
+/**轻-全站-帖子内容页-对联广告-左*/
+function fn_adsp_N3JFv1CTly2B7fB7b1vc() {try {
+ if(screen.availWidth>1024 && __global.isOnline() == false) {  
+      // 屏蔽部分板块
+      var reg = /45\/|www4./g; 
+      var result=window.location.toString().search(reg);
+      if(result>0){
+       return;
+      }
+      //屏蔽正常对联
+      var div = document.getElementById("adsp_content_left_div");
+      if (div != null) {
+        div.style.display = "none";
+      }
+      //打开默认输出
+      var adsp_content_left_banner = document.getElementById("adsp_content_left_banner");
+      if (adsp_content_left_banner) {
+        adsp_content_left_banner.style.display = "block";
+      }
+  	  adsp_ext_float_a = "<script type=\"text/javascript\"\>\r\n/*120*270，创建于2011-3-25*/\r\nvar cpro_id = \"u422506\";\r\n</script\>\r\n<script src=\"http://cpro.baidustatic.com/cpro/ui/f.js\" type=\"text/javascript\"\></script\>"
+}} catch (e) {}}
+fn_adsp_N3JFv1CTly2B7fB7b1vc();
+/**轻-全站帖子内页顶通栏950x90*/
+function fn_adsp_cnGhe9Jo8exaObHNsJ0N() {try {
+  var _timer = 25000;
+    
+    var elems = new Array();
+        elems.push('<a href="http://807.tianya.cn/count?t=ouKEj2rKweD38RpnsyZE&backurl=http://www.wyn88.com/CoOperate/yuan99.html?sid=5042" target="_blank"><img width="950" height="90" src="http://801.tianyaui.com/res/2013/0101/1356971984334.jpg" border="0"></a>');
+	
+
+
+  var _timer = 25000;
+            elems.push('<a href="http://807.tianya.cn/count?t=ODmR0bNJofvux3MqgzBz&backurl=http://page.tianya.cn/wqhome/shop?c=30228&couid=45480" target="_blank"><img width="950" height="90" src="http://801.tianyaui.com/res/2013/0401/1364797941338.jpg" border="0"></a>');
+	
+
+var canvas;
+var divs = new Array();
+var rnd_idx = 0;
+var bar = null;
+var elm_id = "q_topbanner_950_90";
+bar = document.getElementById(elm_id);
+bar.innerHTML = "";
+
+canvas = document.createElement("div");
+canvas.className = "qing_ad_hd";
+bar.appendChild(canvas);
+for (var jdx = 0; jdx < elems.length; jdx++) {
+  canvas = document.createElement("div");
+  canvas.style.display = "none";
+  canvas.innerHTML = elems[jdx];
+  bar.appendChild(canvas);
+  divs.push(canvas);
+}
+canvas = document.createElement("div");
+canvas.className = "qing_ad_bd";
+bar.appendChild(canvas);
+
+rnd_idx = Math.floor(Math.random() * (elems.length));
+
+fn_adsp_cnGhe9Jo8exaObHNsJ0N.changeplay = function(v) {
+  var div = null;
+  if (rnd_idx >= divs.length) {
+    if (divs.length % 2 == 0) {
+      rnd_idx = Math.floor(Math.random() * (divs.length));
+    } else {
+      rnd_idx = rnd_idx % divs.length;
+    }
+  }
+  for (var jdx = 0; jdx < divs.length; jdx++) {
+    divs[jdx].style.display = "none";
+  }
+  div = divs[rnd_idx];
+  div.style.display = "block";
+  rnd_idx++;
+}
+fn_adsp_cnGhe9Jo8exaObHNsJ0N.changeplay();
+setInterval(fn_adsp_cnGhe9Jo8exaObHNsJ0N.changeplay, _timer);
+
+} catch (e) {}}
+fn_adsp_cnGhe9Jo8exaObHNsJ0N();
+/**轻-全站点亮logo*/
+function fn_adsp_eAtIXiYNCA87Mrm96k3f() {try {
+fn_adsp_eAtIXiYNCA87Mrm96k3f.isNum = function(theNum) {
+  return /^[1-9]\d*$/.test(theNum);
+}
+
+fn_adsp_eAtIXiYNCA87Mrm96k3f.getUrlParam = function(url, paras) {
+    var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+    var paraObj = {}
+    for (i = 0; j = paraString[i]; i++) {
+      paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+    }
+    var returnValue = paraObj[paras.toLowerCase()];
+    if (typeof (returnValue) == "undefined") {
+      return "";
+    } else {
+      return returnValue;
+    }
+}
+function __method0() {
+    var tbl, spans, span, userid, ads_url;
+    var users = new Object();
+    var spanbuf;
+    var fillSpan = function() {
+        spanbuf = new Array();
+       
+        // 天涯轻
+        var items = jQuery("div[class='atl-info']");
+        var spans,item,link;
+
+        for (var idx = 0; idx < items.length; idx++) {
+            item = jQuery(items[idx]).children("span")[0];
+            userid = jQuery(item).find("a").attr("uid");
+
+            if (userid != undefined) {
+                users[userid] = 0;
+                jQuery(item).attr("value", userid);
+                spanbuf.push(item);
+            }
+        }
+    }
+    fillSpan();
+    var user_str = "";
+    for (var prop in users) {
+        if(fn_adsp_eAtIXiYNCA87Mrm96k3f.isNum(prop)) {
+          user_str += prop + ",";
+        }
+    }
+    if (user_str.length != 0) {
+        user_str = user_str.substring(0, user_str.length - 1);
+    }else{
+    	return;
+    }
+    ads_url = "http://806.tianya.cn/adsp/logo/userListValidate.jsp?activety=9032146&userid=" + user_str;
+    jQuery(document).ready(function () {
+        jQuery.ajax({
+            url: ads_url,
+            dataType: "jsonp",
+            jsonp: "jsonpcallback",
+            success: function (data) {
+                var activety = fn_adsp_eAtIXiYNCA87Mrm96k3f.getUrlParam(this.url, "activety");
+                var style = document.createElement('style'); 
+                style.setAttribute("type", "text/css");
+                document.body.appendChild(style);
+                var rules = '.adsp_action_user_logo_1_0{background:url("http://801.tianyaui.com/res/2012/1203/1354523121967.gif") no-repeat scroll 0 0 transparent;display:inline-block;width:20px;height:20px;vertical-align:middle} ';
+                rules += '.adsp_action_user_logo_2_0{background:url("http://801.tianyaui.com/res/2012/1203/1354523121967.gif") no-repeat scroll 0 0 transparent;display:inline-block;width:20px;height:20px;vertical-align:middle} ';
+                rules += '.adsp_action_user_logo_3_0{background:url("http://801.tianyaui.com/res/2012/1203/1354523121967.gif") no-repeat scroll 0 0 transparent;display:inline-block;width:20px;height:20px;vertical-align:middle} ';
+                rules += '.adsp_action_user_logo_4_0{background:url("http://801.tianyaui.com/res/2012/1203/1354523121967.gif") no-repeat scroll 0 0 transparent;display:inline-block;width:20px;height:20px;vertical-align:middle} ';
+                rules += '.adsp_action_user_logo_5_0{background:url("http://801.tianyaui.com/res/2012/1203/1354523121967.gif") no-repeat scroll 0 0 transparent;display:inline-block;width:20px;height:20px;vertical-align:middle} ';
+                rules += '.adsp_action_user_logo_6_0{background:url("http://801.tianyaui.com/res/2012/1203/1354523121967.gif") no-repeat scroll 0 0 transparent;display:inline-block;width:20px;height:20px;vertical-align:middle} ';
+                
+                if (jQuery.browser.msie) {
+                    style.styleSheet.cssText = rules;
+                } else {
+                    var frag = document.createDocumentFragment();
+                    frag.appendChild(document.createTextNode(rules));
+                    style.appendChild(frag);
+                }
+
+                jQuery.each(data, function (id, tp) {
+                    fillSpan();
+                    var info = "供佛法会".split("|");
+                    for (var idx = 0; idx < spanbuf.length; idx++) {
+                        span = spanbuf[idx];
+                        if (span.getAttribute("value") == id || span.getAttribute("value") == id) {                            
+                            newlnk = document.createElement("a");
+                            if (tp == "A") {
+                                newlnk.className = "adsp_action_user_logo_1_0";
+                                try{newlnk.title = info[0]}catch(e){};
+                            } else if (tp == "B") {
+                                newlnk.className = "adsp_action_user_logo_2_0";
+                                try{newlnk.title = info[1]}catch(e){};
+                            } else if (tp == "C") {
+                                newlnk.className = "adsp_action_user_logo_3_0";
+                                try{newlnk.title = info[2]}catch(e){};
+                            } else if (tp == "D") {
+                                newlnk.className = "adsp_action_user_logo_4_0";
+                                try{newlnk.title = info[3]}catch(e){};
+                            } else if (tp == "E") {
+                                newlnk.className = "adsp_action_user_logo_5_0";
+                                try{newlnk.title = info[4]}catch(e){};
+                            } else if (tp == "F") {
+                                newlnk.className = "adsp_action_user_logo_6_0";
+                                try{newlnk.title = info[5]}catch(e){};
+                            } else {
+                                newlnk.className = "adsp_action_user_logo_6_0";
+                                try{newlnk.title = info[5]}catch(e){};
+                            }
+                            newlnk.href = "http://807.tianya.cn/count?t=ZLWumwcPKpfGVV3NtggZ&backurl=http://travel.tianya.cn/zhuanti/fofa/index.shtml";
+                            newlnk.target = "_blank";
+                            
+                            if (activety == "funinfo2975685") {
+                              if (tp != "A") {
+                                span.appendChild(newlnk);
+                              }
+                            } else if (activety == "funinfo2979229") {
+                              if (tp == "B") {
+                                span.appendChild(newlnk);
+                              }
+                            } else {
+                              span.appendChild(newlnk);
+                            }
+                            try { span.style.cssFloat = "none"; span.style.styleFloat = "none"; } catch (e) { }
+                            span.style.display = "inline";
+                        }
+                    }
+                });
+            }
+        });
+    });
+}
+__method0();
+} catch (e) {}}
+fn_adsp_eAtIXiYNCA87Mrm96k3f();
+/**轻-回复框矩形（300*250）*/
+function fn_adsp_5WI8NeGOyo1aS0YA324s() {try {
+var _timer = 25000;
+    
+    var elems = new Array();
+        elems.push('<iframe width="300" height="250" hspace=0 vspace=0 frameborder=0 marginheight=0 marginwidth=0 scrolling=no src="http://801.tianya.cn/2012/baidu/index.html"  name="http://801.tianyaui.com/2012/baidu/index.html"></iframe>');
+	
+
+
+var _timer = 25000;
+            elems.push('<a href="http://807.tianya.cn/count?t=wIAStEWzk05oVT4ZfHnU&backurl=http://haizhinan.tmall.com/" target="_blank"><img width="300" height="250" src="http://801.tianyaui.com/res/2013/0412/1365754719589.jpg" border="0"></a>');
+	
+
+
+var _timer = 25000;
+            elems.push('<a href="http://807.tianya.cn/count?t=vPQsaPi4YXC9H2AXC5JU&backurl=http://travel.tianya.cn/hotel/hk_mac.html" target="_blank"><img width="300" height="250" src="http://801.tianyaui.com/res/2013/0412/1365760486572.jpg" border="0"></a>');
+	
+
+
+var _timer = 25000;
+            elems.push('<a href="http://807.tianya.cn/count?t=uhtzDsPUdYW8S7Caqt4R&backurl=http://gamety.tianya.cn/gamead/js/2013/04/12/1344114.shtml" target="_blank"><img width="300" height="250" src="http://801.tianyaui.com/res/2013/0416/1366077077076.jpg" border="0"></a>');
+	
+
+
+var _timer = 25000;
+            elems.push('<a href="http://807.tianya.cn/count?t=PxKIwQzFOGDAu7qDm7gg&backurl=http://qiaohu.tianya.cn/" target="_blank"><img width="300" height="250" src="http://801.tianyaui.com/res/2013/0228/1362034322412.jpg" border="0"></a>');
+	
+
+var canvas;
+var divs = new Array();
+var rnd_idx = 0;
+var bar = null;
+var elm_id = "q_replaybox_300_250";
+bar = document.getElementById(elm_id);
+bar.innerHTML = "";
+
+canvas = document.createElement("div");
+canvas.className = "qing_ad_hd";
+bar.appendChild(canvas);
+for (var jdx = 0; jdx < elems.length; jdx++) {
+  canvas = document.createElement("div");
+  canvas.style.display = "none";
+  canvas.innerHTML = elems[jdx];
+  bar.appendChild(canvas);
+  divs.push(canvas);
+}
+canvas = document.createElement("div");
+canvas.className = "qing_ad_bd";
+bar.appendChild(canvas);
+
+rnd_idx = Math.floor(Math.random() * (elems.length));
+
+fn_adsp_5WI8NeGOyo1aS0YA324s.changeplay = function(v) {
+  var div = null;
+  if (rnd_idx >= divs.length) {
+    if (divs.length % 2 == 0) {
+      rnd_idx = Math.floor(Math.random() * (divs.length));
+    } else {
+      rnd_idx = rnd_idx % divs.length;
+    }
+  }
+  for (var jdx = 0; jdx < divs.length; jdx++) {
+    divs[jdx].style.display = "none";
+  }
+  div = divs[rnd_idx];
+  div.style.display = "block";
+  rnd_idx++;
+}
+fn_adsp_5WI8NeGOyo1aS0YA324s.changeplay();
+setInterval(fn_adsp_5WI8NeGOyo1aS0YA324s.changeplay, _timer);
+
+} catch (e) {}}
+fn_adsp_5WI8NeGOyo1aS0YA324s();
+/**轻-通栏广告1(950*90)*/
+function fn_adsp_GSiURSCP8ZUVSm7RRLuR() {try {
+  var _timer = 25000;
+    
+    var elems = new Array();
+        elems.push('<div style="position: relative;width:950px;height:90px;"><embed style="position:absolute;z-index:0;left:0;" src="http://801.tianyaui.com/res/2013/0415/1366007589036.swf"quality="high" width="950" height="90" pluginspage="http://www.macromedia.com/go/getflashplayer"type="application/x-shockwave-flash" wmode="opaque"><a href="http://807.tianya.cn/count?t=Vm8j18qwu2hfuVV9DdSV&backurl=http://sale.suning.com/images/advertise/004/4payprivilege/index.html?utm_source=zq-ty&utm_medium=tl&utm_campaign=paiqi" target="_blank" style="cursor:pointer"><div style="position:relative;filter:alpha(opacity=0);left:0;top:0;width:950px;height:90px;z-index:10;opacity:0;background-color:#000000"></div></a></div>');
+	
+
+
+  var _timer = 25000;
+            elems.push('<div style="position: relative;width:950px;height:90px;"><embed style="position:absolute;z-index:0;left:0;" src="http://801.tianyaui.com/2013/04/scyd/95090.swf"quality="high" width="950" height="90" pluginspage="http://www.macromedia.com/go/getflashplayer"type="application/x-shockwave-flash" wmode="opaque"><a href="http://807.tianya.cn/count?t=IkoKBIc8vOQeHA4G6JYx&backurl=http://ad3.ctrmi.com/iadexcv/CVHandler.ashx?aid=90098&wid=11127&RedirectUrl=http://www.sc.10086.cn/service/operate/index.jsp?type=1029%26productID=1400%26businessName=mgtjhy%26url=ty" target="_blank" style="cursor:pointer"><div style="position:relative;filter:alpha(opacity=0);left:0;top:0;width:950px;height:90px;z-index:10;opacity:0;background-color:#000000"></div></a></div>');
+	
+
+var canvas;
+var divs = new Array();
+var rnd_idx = 0;
+var bar = null;
+var elm_id = "q_banner_950_90_1";
+bar = document.getElementById(elm_id);
+bar.innerHTML = "";
+
+canvas = document.createElement("div");
+canvas.className = "qing_ad_hd";
+bar.appendChild(canvas);
+for (var jdx = 0; jdx < elems.length; jdx++) {
+  canvas = document.createElement("div");
+  canvas.style.display = "none";
+  canvas.innerHTML = elems[jdx];
+  bar.appendChild(canvas);
+  divs.push(canvas);
+}
+canvas = document.createElement("div");
+canvas.className = "qing_ad_bd";
+bar.appendChild(canvas);
+
+rnd_idx = Math.floor(Math.random() * (elems.length));
+
+fn_adsp_GSiURSCP8ZUVSm7RRLuR.changeplay = function(v) {
+  var div = null;
+  if (rnd_idx >= divs.length) {
+    if (divs.length % 2 == 0) {
+      rnd_idx = Math.floor(Math.random() * (divs.length));
+    } else {
+      rnd_idx = rnd_idx % divs.length;
+    }
+  }
+  for (var jdx = 0; jdx < divs.length; jdx++) {
+    divs[jdx].style.display = "none";
+  }
+  div = divs[rnd_idx];
+  div.style.display = "block";
+  rnd_idx++;
+}
+fn_adsp_GSiURSCP8ZUVSm7RRLuR.changeplay();
+setInterval(fn_adsp_GSiURSCP8ZUVSm7RRLuR.changeplay, _timer);
+
+} catch (e) {}}
+fn_adsp_GSiURSCP8ZUVSm7RRLuR();
+/**轻-底部通栏广告(950*90)*/
+function fn_adsp_eBL8kf59kEODJkwp8GFR() {try {
+  var _timer = 25000;
+    
+    var elems = new Array();
+        elems.push('<div style="position: relative;width:950px;height:90px;"><embed style="position:absolute;z-index:0;left:0;" src="http://801.tianyaui.com/res/2013/0411/1365679763385.swf"quality="high" width="950" height="90" pluginspage="http://www.macromedia.com/go/getflashplayer"type="application/x-shockwave-flash" wmode="opaque"><a href="http://807.tianya.cn/count?t=CVxkFJJvEMvsADIWcVtm&backurl=http://tianya.englishtown.com/online/lp/cn/ee/120117_07_cn_lnp_01.aspx?ctr=cn&lng=cs&etag=E113842FE_TIYA" target="_blank" style="cursor:pointer"><div style="position:relative;filter:alpha(opacity=0);left:0;top:0;width:950px;height:90px;z-index:10;opacity:0;background-color:#000000"></div></a></div>');
+	
+
+
+  var _timer = 25000;
+            elems.push('<div style="position: relative;width:950px;height:90px;"><embed style="position:absolute;z-index:0;left:0;" src="http://801.tianyaui.com/res/2013/0411/1365680087743.swf"quality="high" width="950" height="90" pluginspage="http://www.macromedia.com/go/getflashplayer"type="application/x-shockwave-flash" wmode="opaque"><a href="http://807.tianya.cn/count?t=k45cGYnmqqepNDj7xgQN&backurl=http://tianya.englishtown.com/online/lp/cn/ee/LL_163735_GL.aspx?ctr=cn&lng=cs&etag=E113845FE_TIYA" target="_blank" style="cursor:pointer"><div style="position:relative;filter:alpha(opacity=0);left:0;top:0;width:950px;height:90px;z-index:10;opacity:0;background-color:#000000"></div></a></div>');
+	
+
+
+  var _timer = 25000;
+            elems.push('<a href="http://807.tianya.cn/count?t=MJyP4LiieBg68b0g3ven&backurl=http://wyn88.tianya.cn" target="_blank"><img width="950" height="90" src="http://801.tianyaui.com/res/2013/0226/1361857235422.jpg" border="0"></a>');
+	
+
+
+  var _timer = 25000;
+            elems.push('<div style="position: relative;width:950px;height:90px;"><embed style="position:absolute;z-index:0;left:0;" src="http://801.tianyaui.com/res/2012/0810/1344583664708.swf"quality="high" width="950" height="90" pluginspage="http://www.macromedia.com/go/getflashplayer"type="application/x-shockwave-flash" wmode="opaque"><a href="http://807.tianya.cn/count?t=jBUQHJI02QjONdY7KTdh&backurl=http://hailuogou.tianya.cn/" target="_blank" style="cursor:pointer"><div style="position:relative;filter:alpha(opacity=0);left:0;top:0;width:950px;height:90px;z-index:10;opacity:0;background-color:#000000"></div></a></div>');
+	
+
+var canvas;
+var divs = new Array();
+var rnd_idx = 0;
+var bar = null;
+var elm_id = "q_backbanner_950_90";
+bar = document.getElementById(elm_id);
+bar.innerHTML = "";
+
+canvas = document.createElement("div");
+canvas.className = "qing_ad_hd";
+bar.appendChild(canvas);
+for (var jdx = 0; jdx < elems.length; jdx++) {
+  canvas = document.createElement("div");
+  canvas.style.display = "none";
+  canvas.innerHTML = elems[jdx];
+  bar.appendChild(canvas);
+  divs.push(canvas);
+}
+canvas = document.createElement("div");
+canvas.className = "qing_ad_bd";
+bar.appendChild(canvas);
+
+rnd_idx = Math.floor(Math.random() * (elems.length));
+
+fn_adsp_eBL8kf59kEODJkwp8GFR.changeplay = function(v) {
+  var div = null;
+  if (rnd_idx >= divs.length) {
+    if (divs.length % 2 == 0) {
+      rnd_idx = Math.floor(Math.random() * (divs.length));
+    } else {
+      rnd_idx = rnd_idx % divs.length;
+    }
+  }
+  for (var jdx = 0; jdx < divs.length; jdx++) {
+    divs[jdx].style.display = "none";
+  }
+  div = divs[rnd_idx];
+  div.style.display = "block";
+  rnd_idx++;
+}
+fn_adsp_eBL8kf59kEODJkwp8GFR.changeplay();
+setInterval(fn_adsp_eBL8kf59kEODJkwp8GFR.changeplay, _timer);
+
+} catch (e) {}}
+fn_adsp_eBL8kf59kEODJkwp8GFR();
+/**轻-对联广告右(120*600)*/
+function fn_adsp_zfkur03lCf2gD5gsK31B() {try {
+ if(screen.availWidth>1024 && __global.isOnline() == false) {  
+            var divs = new Array();
+            fn_adsp_zfkur03lCf2gD5gsK31B.showRandDiv = function (v) {
+              var bar = null;
+
+              bar = document.getElementById("float_right_parent_div");
+              bar.style.display = v;
+            }
+
+          // 通用
+          fn_adsp_zfkur03lCf2gD5gsK31B.setCenterFlash = function(v) {
+            var div = document.getElementById("adsp_content_right_div");
+            if (div != null) {
+              div.style.display = v;
+            }
+          }
+          // 删除之前的对象
+          var adsp_content_right_div = document.getElementById("adsp_content_right_div");
+          if (adsp_content_right_div != null) {
+            adsp_content_right_div.setAttribute("id", "__hide_adsp_content_right_div");
+            adsp_content_right_div.innerHTML = "";
+          }
+
+          // 屏蔽默认输出
+          var adsp_content_right_banner = document.getElementById("adsp_content_right_banner");
+          if (adsp_content_right_banner) {
+            adsp_content_right_banner.style.display = "none";
+            adsp_ext_float_b=""; 
+          }
+
+          var bar = document.createElement("div");
+          bar.style.position = "absolute";
+          bar.style.right = "10px";
+          bar.style.top = "40px";
+          bar.style.zIndex = "100";
+          bar.setAttribute("id", "float_right_parent_div");
+
+          var temp = document.createElement("div");
+          temp.appendChild(bar);
+          document.write(temp.innerHTML);
+
+          var div_right = document.createElement("div");
+              div_right.innerHTML = '<a href="http://807.tianya.cn/count?t=PQHnUeEL2ElIczZkZsxS&backurl=http://mall.tianya.cn/item/5684.html" target="_blank"><img width="120" height="500" src="http://801.tianyaui.com/res/2013/0411/1365676671958.jpg" border="0"></a>';
+          var closeLink = document.createElement("img");
+          closeLink.src = "http://static.tianyaui.com/img/static/2008/tygg/c120.jpg";
+          closeLink.setAttribute("id", "adsp_content_right_close_btn");
+          closeLink.style.cursor = "pointer";
+          closeLink.onclick = function () { fn_adsp_zfkur03lCf2gD5gsK31B.showRandDiv("none"); };      
+
+
+
+          var master = document.createElement("div");
+          master.style.display = "none";
+          master.appendChild(div_right);
+          master.appendChild(closeLink);
+          divs.push(master);
+
+          bar = document.getElementById("float_right_parent_div");
+          bar.appendChild(master);
+
+
+
+          var div_right = document.createElement("div");
+              div_right.innerHTML = '<a href="http://807.tianya.cn/count?t=bSRikz5rginNFe4AAPWd&backurl=http://shopin.tianya.cn/" target="_blank"><img width="120" height="500" src="http://801.tianyaui.com/res/2013/0325/1364224940038.gif" border="0"></a>';
+          var closeLink = document.createElement("img");
+          closeLink.src = "http://static.tianyaui.com/img/static/2008/tygg/c120.jpg";
+          closeLink.setAttribute("id", "adsp_content_right_close_btn");
+          closeLink.style.cursor = "pointer";
+          closeLink.onclick = function () { fn_adsp_zfkur03lCf2gD5gsK31B.showRandDiv("none"); };      
+
+
+
+          var master = document.createElement("div");
+          master.style.display = "none";
+          master.appendChild(div_right);
+          master.appendChild(closeLink);
+          divs.push(master);
+
+          bar = document.getElementById("float_right_parent_div");
+          bar.appendChild(master);
+
+
+
+          var div_right = document.createElement("div");
+              div_right.innerHTML = '<a href="http://807.tianya.cn/count?t=lSCUU84pJBgw8ys8SjID&backurl=http://page.tianya.cn/comagic" target="_blank"><img width="120" height="500" src="http://801.tianyaui.com/res/2013/0412/1365766950909.jpg" border="0"></a>';
+          var closeLink = document.createElement("img");
+          closeLink.src = "http://static.tianyaui.com/img/static/2008/tygg/c120.jpg";
+          closeLink.setAttribute("id", "adsp_content_right_close_btn");
+          closeLink.style.cursor = "pointer";
+          closeLink.onclick = function () { fn_adsp_zfkur03lCf2gD5gsK31B.showRandDiv("none"); };      
+
+
+
+          var master = document.createElement("div");
+          master.style.display = "none";
+          master.appendChild(div_right);
+          master.appendChild(closeLink);
+          divs.push(master);
+
+          bar = document.getElementById("float_right_parent_div");
+          bar.appendChild(master);
+
+
+
+          var div_right = document.createElement("div");
+              div_right.innerHTML = '<a href="http://807.tianya.cn/count?t=wTAsGudqGGyio8b5JpIi&backurl=http://haizhinan.tmall.com/" target="_blank"><img width="120" height="500" src="http://801.tianyaui.com/res/2013/0412/1365752792803.jpg" border="0"></a>';
+          var closeLink = document.createElement("img");
+          closeLink.src = "http://static.tianyaui.com/img/static/2008/tygg/c120.jpg";
+          closeLink.setAttribute("id", "adsp_content_right_close_btn");
+          closeLink.style.cursor = "pointer";
+          closeLink.onclick = function () { fn_adsp_zfkur03lCf2gD5gsK31B.showRandDiv("none"); };      
+
+
+
+          var master = document.createElement("div");
+          master.style.display = "none";
+          master.appendChild(div_right);
+          master.appendChild(closeLink);
+          divs.push(master);
+
+          bar = document.getElementById("float_right_parent_div");
+          bar.appendChild(master);
+
+          var rnd_idx = Math.floor(Math.random() * (divs.length));
+
+          fn_adsp_zfkur03lCf2gD5gsK31B.changeplay = function(v) {
+            var div = null;
+            if (rnd_idx >= divs.length) {
+              if (divs.length % 2 == 0) {
+                rnd_idx = Math.floor(Math.random() * (divs.length));
+              } else {
+                rnd_idx = rnd_idx % divs.length;
+              }
+            }
+            for (var jdx = 0; jdx < divs.length; jdx++) {
+              divs[jdx].style.display = "none";
+            }
+            div = divs[rnd_idx];
+            div.style.display = "block";
+            rnd_idx++;
+          }
+          fn_adsp_zfkur03lCf2gD5gsK31B.changeplay();
+          setInterval(fn_adsp_zfkur03lCf2gD5gsK31B.changeplay, 25000);
+
+}
+} catch (e) {}}
+fn_adsp_zfkur03lCf2gD5gsK31B();

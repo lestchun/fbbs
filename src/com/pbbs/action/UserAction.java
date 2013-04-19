@@ -10,19 +10,23 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 
 import com.pbbs.model.User;
 import com.pbbs.service.UserService;
 import com.pbbs.tool.Result;
+import com.pbbs.vo.UserVO;
 @Controller("UserAction")
 @Scope("prototype")
 public class UserAction extends BaseAction<User> {
 	private static final long serialVersionUID = 1511404579803137517L;
 	@Autowired UserService service;
+	
 	private String oldPass;
 	private String newPass; 
-
+	private String fowardURL;
+	private String returnURl;
 	public UserAction() {
 		model= new User();
 	}
@@ -50,7 +54,7 @@ public class UserAction extends BaseAction<User> {
 	 * @return
 	 */
 	public String userCenter(){
-		model=getLoginUser();
+		model=getLoginUser(service);
 		result= new Result();
 		result.setResultCode(ERROR_CODE);
 		if(null==model){
@@ -86,7 +90,10 @@ public class UserAction extends BaseAction<User> {
 	 * @return
 	 */
 	public String logout(){
-		session.put("user", null);
+		setLoginUser(null);
+		if(StringUtils.isBlank(returnURl)){
+			returnURl="index.jsp";
+		}
 		return SUCCESS;
 	}
 	
@@ -122,6 +129,16 @@ public class UserAction extends BaseAction<User> {
 				}
 			}
 		}
+		System.out.println(result.getMsg());
+		return SUCCESS;
+	}
+	
+	public String loginTo(){
+		
+		login();
+		if(StringUtils.isBlank(fowardURL)){
+			fowardURL="index.jsp";
+		}
 		return SUCCESS;
 	}
 	
@@ -137,7 +154,7 @@ public class UserAction extends BaseAction<User> {
 		}else if(StringUtils.isBlank(newPass)){
 			result.setMsg("你没有输入新密码");
 		}else{
-			User user= getLoginUser();
+			User user= getLoginUser(service);
 			if(user==null){
 				result.setMsg("你没有登录");
 			}else{
@@ -155,8 +172,14 @@ public class UserAction extends BaseAction<User> {
 		return SUCCESS;
 	}
 	
+	
+	
+	/**
+	 * 最受欢迎用户排行
+	 * @return
+	 */
 	public String listWelUser(){
-		lists=service.listWelUser(getPages());
+		list=service.listWelUserVO(null==type?0:type,mid,getPages());
 		return SUCCESS;
 	}
 
@@ -176,6 +199,48 @@ public class UserAction extends BaseAction<User> {
 		this.newPass = newPass;
 	}
 
- 
+	private Page<UserVO>  list;
+
+	public Page<UserVO> getList() {
+		return list;
+	}
 	
+	public void setList(Page<UserVO> list) {
+		this.list = list;
+	}
+	private Integer type;
+	private Integer mid;
+	public Integer getType() {
+		return type;
+	}
+
+	public void setType(Integer type) {
+		this.type = type;
+	}
+
+	public Integer getMid() {
+		return mid;
+	}
+
+	public void setMid(Integer mid) {
+		this.mid = mid;
+	}
+
+	public String getFowardURL() {
+		return fowardURL;
+	}
+
+	public void setFowardURL(String fowardURL) {
+		this.fowardURL = fowardURL;
+	}
+
+	public String getReturnURl() {
+		return returnURl;
+	}
+
+	public void setReturnURl(String returnURl) {
+		this.returnURl = returnURl;
+	}
+
+
 }

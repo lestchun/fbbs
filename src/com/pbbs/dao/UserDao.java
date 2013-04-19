@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
 import com.pbbs.model.User;
+import com.pbbs.vo.UserVO;
 
  
 
@@ -21,8 +22,13 @@ public interface UserDao extends JpaRepository<User,Integer>{
 	 
 	 public List<User> findByUserName(String userName); 
 	 
-	 public Page<User> listWelUser(Pageable page);
+	 public Page<User> listWelUser(Pageable page) ;
+	 
+	 public Page<UserVO> listWelUserVO(int type,Integer id,Pageable page);
 	 
 	 public User findByUserIdAndUsername(User user);
+	 
+	 public void av(User user);
+	 
 	 /*${start}${content}${end}*/
 }
